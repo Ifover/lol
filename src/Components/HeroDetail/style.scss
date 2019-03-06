@@ -1,0 +1,422 @@
+@import "@/Scss/reset";
+
+html, body {
+  width: 100%
+}
+
+.margin {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+#header {
+  @include rect(100%, 450px);
+  background: #ff9;
+}
+
+.title {
+  width: 1896px;
+  height: 120px;
+  background: #f7f8f8;
+  line-height: 120px;
+
+  span {
+    color: #a9a9a9;
+  }
+
+  a {
+    color: #a9a9a9;
+    margin: 0 20px;
+  }
+
+  .te {
+    color: #424242;
+  }
+
+}
+
+
+.hero-img {
+  //width: 1240px;
+  height: 632px;
+  background: #f7f8f8;
+
+  .defail-skin {
+    position: relative;
+    @include rect(100%, 632px);
+
+    .gallery-top {
+      @include rect(100%, 100%);
+
+      .swiper-wrapper {
+        img {
+          @include rect(1240px, 632px);
+        }
+
+      }
+    }
+
+
+    .hero-attribute {
+      @include rect(305px, auto);
+      background: rgba(24, 23, 25, 0.6);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      color: #fff;
+      z-index: 999;
+
+      .hero-box {
+        width: 382px;
+        height: 220px;
+        margin: 50px 0 0 50px;
+
+        .a-1 {
+          font-size: 30px;
+        }
+
+        .a-2 {
+          font-size: 50px;
+        }
+
+        .a-3 span {
+          width: 42px;
+          height: 28px;
+          border-radius: 5px;
+          background: #00a483;
+          display: inline-block;
+          text-align: center;
+          line-height: 28px;
+          margin: 20px 2px;
+        }
+
+        ul {
+          li {
+            margin-top: 7px;
+
+            a {
+              height: 14px;
+              width: 110px;
+              background: #363c3c;
+              display: inline-block;
+              line-height: 14px;
+              margin-left: 10px;
+            }
+
+            a .b-1 {
+              width: 30%;
+              height: 100%;
+              display: inline-block;
+              background: #f2c500;
+            }
+
+            a .b-2 {
+              width: 80%;
+              height: 100%;
+              display: inline-block;
+              background: #f59d00;
+            }
+
+            a .b-3 {
+              width: 40%;
+              height: 100%;
+              display: inline-block;
+              background: #2c97de;
+            }
+
+            a .b-4 {
+              width: 50%;
+              height: 100%;
+              display: inline-block;
+              background: #1eca6b;
+            }
+
+
+          }
+        }
+
+        a.btn_buy {
+          display: block;
+          width: 152px;
+          height: 38px;
+          margin-top: 42px;
+          border: none;
+          background-image: url(//game.gtimg.cn/images/lol/web201310/page.png?d=20131230);
+          background-position: -638px 0;
+        }
+      }
+    }
+
+    .hero-skin {
+      width: 750px;
+      height: 130px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+
+      .top {
+        width: 100%;
+        height: 45px;
+
+        h3 {
+          float: right;
+          width: 115px;
+          height: 40px;
+          background: rgba(24, 23, 25, 0.6);
+          color: #fff;
+          text-align: center;
+          font: 24px/40px "";
+          margin-right: 10px;
+        }
+      }
+
+      ul {
+        width: 100%;
+        height: 60px;
+        margin: 5px 0;
+        display: flex;
+        position: absolute;
+
+        li {
+          width: 60px;
+          height: 60px;
+          border: 1px solid #000;
+          cursor: pointer;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+
+        }
+
+
+      }
+
+      .gallery-thumbs {
+        height: 66px !important;
+
+        .swiper-wrapper {
+          margin: 0 !important;
+
+          .swiper-slide {
+            width: 60px !important;
+          }
+        }
+
+        li.swiper-slide-thumb-active:after {
+          position: absolute;
+          top: 0;
+          @include rect(60px, 60px);
+          content: '';
+          display: block;
+          border: 4px solid #00a483;
+        }
+
+
+      }
+
+    }
+  }
+
+
+}
+
+.main {
+  height: 1696px;
+  background: #f7f8f8;
+
+  .main-left {
+    width: 781px;
+    height: 1696px;
+    margin-right: 31px;
+    float: left;
+
+    h3 {
+      padding-top: 41px;
+      font: 600 16px/2 "";
+      color: #338c7a;
+    }
+
+    .background-story {
+      @include rect(100%, 168px);
+      border: 1px solid #e1e1e1;
+      margin-top: 20px;
+      background: #fff;
+      padding: 26px 32px;
+      box-sizing: border-box;
+
+      p {
+        font: 12px/2 "";
+        color: #666;
+        text-indent: 2em;
+        //margin-top: 65px;
+      }
+
+
+    }
+
+    .cd-img {
+      @include rect(781px, 232px);
+
+      .img {
+        @include rect(100%, 100px);
+        margin-top: 24px;
+
+        ul {
+          display: flex;
+          justify-content: left;
+          flex-direction: row;
+          //text-indent: 38px;
+
+          li {
+            @include rect(102px, 102px);
+            padding: 10px 19px;
+
+            img {
+              @include rect(64px, 64px);
+            }
+          }
+
+          li.active {
+            border-top: 3px solid #00a383;
+            padding: 10px 19px;
+            background: #fff;
+            border-left: 1px solid #e1e1e1;
+            border-right: 1px solid #e1e1e1;
+          }
+        }
+
+      }
+
+      .cd-detail {
+        @include rect(100%, auto);
+        border: 1px solid #e1e1e1;
+        background: #fff;
+        padding: 14px 30px;
+
+        span {
+          margin-left: 5px;
+          color: #338c7a;
+        }
+
+        h4 {
+          font-size: 18px;
+          color: #333;
+          text-indent: 38px;
+        }
+
+        p {
+          text-indent: 38px;
+          margin-top: 15px;
+          color: #333;
+        }
+      }
+
+    }
+
+    .equipment {
+      @include rect(100%, 434px);
+      border: 1px solid #e1e1e1;
+      background: #fff;
+
+      .equipment-li {
+        @include rect(50%, 60px);
+        float: left;
+        border-top: 5px solid #d7d7d7;
+        border-bottom: 1px solid #e2e2e2;
+        background: #f0f0f0;
+        text-align: center;
+        line-height: 60px;
+      }
+
+
+      .equipment-li:hover {
+        @include rect(50%, 60px);
+
+        float: left;
+        border: 0;
+        border-top: 5px solid #666;
+        background: #fff;
+      }
+
+      .active {
+        border: 0;
+        border-top: 5px solid #666;
+        background: #fff;
+        color: #00a383;
+      }
+
+      .equipment-right:hover {
+        width: 486px;
+        height: 60px;
+        float: left;
+        border: 0;
+        border-top: 5px solid #666;
+        background: #fff;
+      }
+
+      span {
+        font-size: 18px;
+        color: #338c7a;
+        text-indent: 40px;
+        display: inline-block;
+        font-weight: 700;
+        margin-top: 30px;
+      }
+
+      p {
+        margin-left: 30px;
+        margin-top: 10px;
+        border-bottom: 1px solid #eee;
+        height: 90px;
+        width: 900px;
+      }
+
+      p img {
+        margin-left: 10px;
+      }
+
+      h5 {
+        font-size: 20px;
+        color: #338c7a;
+        margin-top: 60px
+      }
+    }
+
+    .use-skill {
+      @include rect(100%, auto);
+      border: 1px solid #e1e1e1;
+      background: #fff;
+      //padding: 15px 0 0 38px;
+      box-sizing: border-box;
+
+      .top {
+        @include rect(100%, auto);
+        padding: 18px 30px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .bottom {
+        padding: 18px 30px;
+
+      }
+
+      .a-1 {
+        color: #338c7a;
+        font-weight: 700;
+      }
+
+      p {
+        font: 14px/30px "";
+      }
+
+
+    }
+  }
+
+
+}
+

@@ -1,0 +1,151 @@
+@import "@/Scss/reset";
+html, body, #app {
+  @include flexbox();
+  @include rect(100%, 100%);
+  @include flex-direction(column);
+  @include overflow();
+  @include background-color(#eee);
+
+}
+.header {
+  @include rect(1358px,360px);
+}
+.footer {
+  @include rect(1358px,auto);
+}
+.box {
+  @include flexbox();
+  @include flex-direction(column);
+  @include rect(1358px,auto);
+  .caution {
+    @include flexbox();
+    @include rect(1358px, 96px);
+    @include text-align(left);
+    @include font-size(14px);
+    line-height: 96px;
+    .anticon {
+      @include rect(16px,16px);
+      margin:-3px 9px 0 0;
+      line-height: 100px;
+    }
+    a {
+      @include color(#a9a9a9);
+    }
+    .jt{
+      margin:-2px 21px 0 21px;
+      @include rect(5px,8px);
+    }
+    .here {
+      @include color(#424242);
+
+    }
+  }
+  .newsBox {
+    @include flexbox();
+    @include rect(1358px,auto);
+
+    .newsList {
+      @include rect(940px, auto);
+      @include background-color( #fff);
+      .ant-tabs-nav-scroll{
+        @include rect(940px,78px);
+      }
+      .ant-tabs-tab{
+        @include rect(167px,78px);
+        @include font-size(16px);
+        @include color(#676767);
+        @include text-align();
+        line-height:78px;
+        margin:0;padding:0;
+        &.ant-tabs-tab-active{
+          @include color(#1890ff);
+        }
+      }
+      .msg {
+        @include flexbox();
+        @include rect(860px,61px);
+        border-bottom:1px solid #eff1f1;
+        margin:0;
+        .leftMsg {
+          @include rect(36px,20px);
+          border:1px solid #c5ab86;
+          color:#bb9a6c;
+          font-size:12px;
+          line-height:18px;
+          margin-top:21px;
+        }
+        .contentMsg {
+          @include rect(660px, 60px);
+          color:#424242;
+          font-size:14px;
+          margin-left:20px;
+          margin-bottom:0;
+          line-height:60px;
+        }
+        .dataMsg {
+          vertical-align: middle;
+          line-height:60px;
+        }
+      }
+      .pages {
+        @include rect(940px,32px);
+        padding:60px 0;
+        text-align:center;
+      }
+    }
+    .twoCode {
+      @include rect(360px, auto);
+      margin-left:30px;
+      .codeBox {
+        @include flexbox();
+        @include rect(360px,126px);
+        @include background-color(#fff);
+        margin-bottom:10px;
+        img {
+          @include rect(96px,96px);
+          margin-right:10px;
+        }
+        .p1 {
+          @include rect(220px,35px);
+          @include font-size(24px);
+          @include color(#484848);
+          font-weight:700;
+          margin:0;
+        }
+        .p2 {
+          @include rect(220px,24px);
+          @include font-size(14px);
+          @include color(#484848);
+          margin:0;
+        }
+        .p3 {
+          @include rect(220px,24px);
+          @include font-size(12px);
+          @include color(#c3c3c3);
+          margin:0;
+        }
+      }
+      .navigation {
+        @include flexbox();
+        @include rect(350px,126px);
+        flex-wrap:wrap;
+        li {
+          @include flexbox();
+          @include justify-content();
+          @include align-items();
+          @include rect(170px,65px);
+          @include background-color(#fff);
+          margin:0 5px 10px 0;
+          a {
+            @include color(#424242);
+            .anticon {
+              @include rect(18px,14px);
+
+            }
+          }
+          
+        }
+      }
+    }
+  }
+}

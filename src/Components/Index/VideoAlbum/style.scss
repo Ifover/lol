@@ -1,0 +1,287 @@
+@import "@/Scss/reset";
+
+.layout {
+  @include background-color(#e3e2e2);
+}
+
+
+.video-album {
+  //width: ;
+  @include rect(1360px, 593px);
+  margin: 0 auto;
+  @include padding(70px 0 60px 0);
+  @include flexbox();
+  @include justify-content(space-between);
+
+
+  .title {
+    @include flexbox();
+
+    h2 {
+      @include display(inline-block);
+      @include font-size(24px);
+      @include line-height(28px);
+
+    }
+
+    .title-right {
+      //@include border(1px solid #f00);
+      @include rect(692px, auto);
+      @include margin-left(24px);
+      @include flexbox();
+      @include justify-content(space-between);
+      border-bottom: 1px solid #d6d7d8;
+
+      ul {
+        @include display(flex);
+
+        li {
+          //@include rect(79px, 100%);
+          position: relative;
+          @include font-size(16px);
+          @include line-height(32px);
+
+          a {
+            @include color(#676767);
+            display: block;
+            @include padding(0 44px 0 3px);
+            cursor: pointer;
+          }
+        }
+
+        li.active {
+          a {
+            @include color(#1da6ba);
+            @include font-weight(700);
+
+          }
+
+          :after {
+            display: block;
+            position: absolute;
+            bottom: -1px;
+            content: '';
+            @include rect(32px, 3px);
+            @include background-color(#1da6ba);
+
+          }
+        }
+
+        li:hover a {
+          @include color(#1da6ba);
+          @include font-weight(700);
+        }
+
+        li:hover a:after {
+          display: block;
+          position: absolute;
+          bottom: -1px;
+          content: '';
+          @include rect(32px, 3px);
+          @include background-color(#1da6ba);
+        }
+
+      }
+
+
+      a.more {
+        @include display(block);
+        @include font-size(12px);
+        @include line-height(32px);
+      }
+    }
+
+  }
+
+
+  .box_left {
+    @include rect(820px, auto);
+
+    ul.video-item {
+      @include rect(100%, 402px);
+      padding-top: 27px;
+      @include flexbox();
+      @include justify-content(space-between);
+      @include flex-wrap(wrap);
+
+      li {
+        @include rect(193px, 201px);
+
+        .imgbox {
+          @include rect(193px, 107px);
+          position: relative;
+
+          img {
+            @include rect(193px, 100%);
+          }
+
+          span.time {
+            @include color(#fff);
+            @include font-weight(400);
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+          }
+        }
+
+
+        p {
+          @include rect(193px, 66px);
+          overflow: hidden;
+          //white-space: normal;
+          word-break: break-all;
+          padding: 12px 10px;
+          @include font-size(14px);
+          @include line-height(20px);
+
+        }
+
+        div.count {
+          @include flexbox();
+          padding: 0 10px;
+          @include justify-content(space-between);
+          @include color(#999);
+
+          span {
+            @include display(block);
+          }
+        }
+      }
+
+    }
+  }
+
+  .box_right {
+    @include rect(498px, auto);
+
+    .title {
+      .title-right {
+        @include rect(370px, auto);
+
+        ul.box_title_right {
+          li {
+            margin-right: 13px;
+
+            a {
+              @include padding(0 4px 0 3px);
+
+            }
+          }
+
+        }
+      }
+
+    }
+
+    .hotprogram-content {
+      padding: 32px 0 26px 0;
+      position: relative;
+      @include flexbox();
+      @include justify-content(space-between);
+      @include rect(100%, 369px);
+
+      .hotprogram-item {
+        @include rect(156px, 311px);
+        color: #fff;
+        position: relative;
+
+        img {
+          @include rect(156px, 212px);
+        }
+
+        h4, p {
+          position: absolute;
+          text-align: center;
+          top: 130px;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+
+        p {
+          top: 150px;
+        }
+
+        .name-progress {
+          font-size: 14px;
+          text-align: left;
+          color: #919091;
+          width: 100%;
+          height: 42px;
+          line-height: 21px;
+          overflow: hidden;
+          position: absolute;
+          left: 0;
+          top: 224px;
+          box-sizing: border-box;
+          padding: 0 7px;
+        }
+
+        .author-program {
+          @include display(block);
+          position: absolute;
+          //left: 0;
+          top: 280px;
+          @include rect(100%, 30px);
+          font: 12px/30px "";
+          @include box-sizing(border-box);
+          padding-left: 4px;
+          color: #919091;
+
+          img {
+            display: inline-block;
+            vertical-align: middle;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin: -2px 4px 0 0;
+          }
+        }
+      }
+
+      .hotprogram-list {
+        background-image: url(//ossweb-img.qq.com/images/lol/v3/index-spr.png);
+        background-size: 638px 572px;
+        background-repeat: no-repeat;
+        width: 23px;
+        height: 51px;
+        top: 89px;
+        position: absolute;
+
+        display: block;
+
+      }
+
+      .hotprogram-list-left {
+        background-position: -221px -397px;
+        left: -29px;
+      }
+
+      .hotprogram-list-right {
+        background-position: -193px -397px;
+        right: -29px;
+        z-index: 2;
+      }
+
+    }
+
+    .more-hotprogram {
+      display: block;
+      background-position: 0 -522px;
+      width: 506px;
+      height: 50px;
+      font-size: 16px;
+      color: #ab8e66;
+      text-align: center;
+      line-height: 50px;
+      margin-left: -5px;
+      //-webkit-transition: brightness .3s;
+      transition: brightness .3s;
+      background-image: url('https://ossweb-img.qq.com/images/lol/v3/index-spr.png');
+      background-size: 638px 572px;
+      background-repeat: no-repeat;
+    }
+
+
+  }
+}

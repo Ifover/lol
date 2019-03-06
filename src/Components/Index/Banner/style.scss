@@ -1,0 +1,47 @@
+@import "@/Scss/reset";
+
+.box {
+  width: 820px;
+  height: 380px;
+}
+
+.swiper-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+  @include rect(820px, 380px)
+
+  img {
+    @include rect(820px, 340px)
+  }
+}
+
+.gallery-top {
+  @include rect(820px, 340px)
+}
+
+.gallery-thumbs {
+  @include rect(820px, 40px)
+  box-sizing: border-box;
+  //padding: 10px 0;
+}
+
+.gallery-thumbs .swiper-slide {
+  width: 20% !important;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #e3e2e2;
+  font: 14px/40px "";
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+  color: #ab8e66;
+  background-color: #f7f6f6;
+  border-bottom: 2px #cea861 solid;
+}
+

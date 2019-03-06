@@ -1,0 +1,479 @@
+@import "@/Scss/reset";
+
+
+.big-box {
+  @include rect(1920px, 745px);
+  @include background-color(#eee);
+
+  .margin {
+    @include rect(1418px, auto);
+    margin: 0 auto;
+
+    .top {
+      @include rect(1365px, 40px);
+      @include flexbox()
+      @include justify-content(space-between);
+      //@include margin-left(23px);
+      //position: relative;
+
+      .title-left {
+        position: relative;
+
+        .top2 {
+          font-size: 22px;
+          color: #000;
+        }
+
+        .top3 {
+          font-size: 15px;
+          color: #676767;
+          margin-left: 24px;
+        }
+
+        .top4 {
+          font-size: 15px;
+          color: #676767;
+          margin-left: 55px;
+        }
+
+
+      }
+
+      .title-left:before {
+        content: '';
+        display: block;
+        @include rect(4px, 28px);
+        @include background-color(#1da6ba);
+        @include display(inline-block)
+        position: absolute;
+        top: 2px;
+        left: -10px;
+      }
+
+      .title-right {
+        img {
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 6px;
+        }
+
+        .top6 {
+          font-size: 11px;
+          color: #7ea1a6;
+          margin-left: 10px;
+        }
+
+      }
+
+
+    }
+
+    .center {
+      @include rect(1418px, 200px);
+      margin-top: 26px;
+      display: inline-block;
+      position: relative;
+
+      .center1 {
+        @include background-color(#ccc);
+        @include rect(23px, 51px);
+        border-radius: 7px;
+        line-height: 51px;
+        color: #fff;
+        text-align: center;
+      }
+
+      .center2-top {
+        @include rect(100%, 198px);
+        position: relative;
+        background: #fff;
+      }
+
+      .center2-top-top.over {
+        background-color: #b2b2b2;
+      }
+
+      .center2-top-top.wait {
+        background-color: #bfa57d;
+        //background: linear-gradient(to-left, #b69d75, #d6ba92);
+      }
+
+      .center2-top-top {
+        @include rect(100%, 28px);
+
+        i {
+          @include rect(100%, 28px);
+          display: block;
+          background: url(//ossweb-img.qq.com/images/lol/v3/gamelist-top-ware.png) repeat-x 0 0;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        span {
+          @include display(inline-block);
+          color: #fff;
+          @include line-height(28px);
+          @include font-weight(700);
+          font-size: 16px;
+        }
+
+        .span1 {
+          float: left;
+          margin-left: 15px;
+        }
+
+        .span2, .span3 {
+          margin-right: 15px;
+          float: right;
+        }
+      }
+
+      .center2-center {
+        width: 214px;
+        height: 50px;
+        margin: 22px 0 0 24px;
+
+        .team-b {
+          right: 6px;
+          top: 49px;
+        }
+
+        .team-a, .team-b {
+          @include rect(85px, 85px);
+          position: absolute;
+          overflow: hidden;
+          text-align: center;
+
+          span {
+            display: block;
+            width: 85px;
+            height: 65px;
+            line-height: 65px;
+            text-align: center;
+
+            img {
+              max-width: 50px;
+              display: inline-block;
+            }
+
+          }
+
+          a {
+            padding: 0;
+            color: #385155;
+            font-size: 18px;
+            line-height: 20px;
+          }
+
+        }
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+
+        a {
+          font-size: 30px;
+        }
+
+        .gamelist-score {
+          display: block;
+          width: 86px;
+          height: 40px;
+          font-weight: 700;
+          text-align: center;
+          line-height: 40px;
+          position: absolute;
+          top: 54px;
+          left: 50%;
+          font-size: 0;
+          margin-left: -43px;
+
+          a {
+            color: #171717;
+            font-size: 34px;
+            margin: 0 2px;
+          }
+        }
+
+        span.gamelist-over {
+          display: block;
+          width: 86px;
+          height: 29px;
+          line-height: 29px;
+          text-align: center;
+          box-sizing: border-box;
+          border: 1px #727272 solid;
+          color: #727272;
+          position: absolute;
+          left: 100px;
+          top: 110px;
+          transition: background-color .2s;
+        }
+
+        .p1, .p2 {
+          width: 100%;
+          line-height: 1.5;
+          font-size: 12px;
+          text-align: center;
+          color: #727272;
+          position: absolute;
+          left: 0;
+          top: 150px;
+        }
+
+        .p2 {
+          top: 170px;
+        }
+      }
+
+      .center2-bottom {
+        @include rect(214px, 30px)
+        margin: 16px 0 0 24px;
+
+        h3 {
+          float: left;
+          color: #385155;
+        }
+
+        .te2 {
+          @include rect(80px, 27px)
+          border: 1px solid #bb9a6c;
+          color: #bb9a6c;
+          font-size: 10px;
+          text-align: center;
+          line-height: 27px;
+          margin: 0 24px;
+        }
+
+        .te3 {
+          margin-left: 3px;
+        }
+      }
+
+      .center2-bottom-2 h4 {
+        font-size: 10px;
+        color: #727272;
+        margin: 16px 0 0 2px;
+        text-align: center;
+      }
+    }
+
+    .bottom {
+      @include rect(100%, 300px);
+      @include flexbox()
+      @include justify-content(space-between);
+      margin-top: 50px;
+
+      .bottom-left {
+        @include rect(850px, 100%);
+
+        .bottom-left-top {
+          @include rect(100%, 24px);
+          @include flexbox();
+
+          b {
+            font-size: 18px;
+            margin-left: 10px;
+            font-weight: 400;
+          }
+
+          ul {
+            @include flexbox();
+            @include justify-content(left);
+            margin-left: 23px;
+            border-bottom: 1px solid #e0e2e2;
+
+            li {
+              margin-right: 50px;
+              font-size: 16px;
+              position: relative;
+              text-align: center;
+
+              span {
+                margin-right: 20px;
+                color: #666;
+              }
+            }
+
+
+            li:hover {
+              border-bottom: 3px solid #1da6ba;
+              font-weight: 700;
+
+              span {
+                color: #1da6ba;
+
+              }
+            }
+          }
+
+        }
+
+        .bottom-left-bottom {
+          overflow: hidden;
+          margin-top: 22px;
+
+          ul {
+            overflow: hidden;
+
+            li {
+              @include rect(151px, 257px);
+              float: left;
+              margin-left: 10px;
+
+              img {
+                @include rect(151px, 151px);
+                display: block;
+              }
+
+              .te {
+                height: 52px;
+                background: #fff;
+                font-size: 12px;
+                padding: 5px 0 0 5px;
+
+                h3 {
+                  color: #424242;
+                }
+
+                h4 {
+                  color: #7ea1a6;
+                }
+              }
+
+              .ranking {
+                @include rect(151px, 54px);
+                @include flexbox()
+                @include justify-content(space-between);
+                @include padding(0 10px);
+                background: #fff;
+                align-items: center;
+
+                span {
+                  display: block;
+                  font-size: 22px;
+                  color: #877b7b;
+                }
+
+                img {
+                  @include rect(30px, 30px);
+                  display: block;
+                }
+              }
+
+              .user-head {
+                background: linear-gradient(to bottom, #fefefe, #fefefe, #8a8a8a)
+              }
+
+
+            }
+          }
+        }
+      }
+
+
+      .bottom-right {
+        @include rect(515px, 300px);
+
+        .rank {
+          font-size: 18px;
+          color: #0b0b0b;
+        }
+
+        .rank-list {
+          @include rect(515px, 32px);
+          line-height: 32px;
+          box-sizing: border-box;
+          padding: 0 18px;
+          color: #151517;
+          font-size: 16px;
+          font-weight: 400;
+          background-color: #e0e0e0;
+          margin-top: 20px;
+
+          .a-2 {
+            margin-left: 90px;
+          }
+
+          .a-3 {
+            margin-left: 110px;
+          }
+
+          .a-4 {
+            margin-left: 110px;
+          }
+        }
+
+
+        .club {
+          @include rect(515px, 226px);
+          display: block;
+          background: #fff;
+          padding: 0 18px;
+          overflow-y: scroll;
+
+
+          li {
+            list-style: none;
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: 1px #e0e2e2 solid;
+
+            a {
+              display: inline-block;
+            }
+
+            .a-1 {
+              width: 120px;
+              font-size: 18px;
+              font-weight: 700;
+            }
+
+            .a-2 {
+              color: #000;
+              width: 165px;
+              img {
+                @include rect(25px, 25px);
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 12px;
+              }
+            }
+
+            .a-3 {
+              //margin-left: 95px;
+              color: #5f8d94;
+            }
+
+            .a-4 {
+              margin-left: 125px;
+              color: #5f8d94;
+            }
+          }
+        }
+
+        .club::-webkit-scrollbar {
+          display: block !important;
+          width: 8px;
+          height: 100%;
+          background-color: #F5F5F5;
+        }
+
+        //.club::-webkit-scrollbar-track {
+        //  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        //  border-radius: 10px;
+        //  background-color: #F5F5F5;
+        //}
+        //
+        .club::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+          background-color: #555;
+        }
+
+      }
+    }
+  }
+}
