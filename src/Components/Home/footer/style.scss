@@ -1,0 +1,44 @@
+@import '@/Scss/reset';
+
+
+html, body {
+  @include rect(100%, 100%);
+  @include overflow();
+}
+.ft{
+  @include rect(100%, 100%);
+  @include background-color(#e6e6e6);
+  margin-top:20px;
+}
+.ftbox{
+  @include rect(1280px,158px);
+  margin:0 auto;
+  @include background-color(#e6e6e6);
+}
+.footer {
+  @include rect(1280px,158px);
+  @include flexbox();
+  
+  margin:0 auto;
+  .leftBox {
+    @include flexbox();
+    @include justify-content();
+    // @include align-items();
+    @include rect(450px,118px);
+    margin-top:55px;
+    a {
+      margin-left:20px;
+    }
+  }
+  .rightBox {
+    @include rect(682px,auto);
+    margin-top:35px;
+    p {
+      margin-bottom:5px;
+    }
+    p {
+      @include font-size(12px);
+      @include color(#3fa5bc);
+    }
+  }
+}

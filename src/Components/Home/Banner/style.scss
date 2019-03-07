@@ -1,0 +1,6 @@
+@import '@/Scss/reset';
+
+
+.banner{
+  @include rect(100%,100%);
+}

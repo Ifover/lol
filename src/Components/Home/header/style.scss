@@ -1,9 +1,67 @@
-@import '@/qunar/reset.scss';
+@import '@/Scss/reset';
 
-html, body, #header {
-  @include rect(100%, 100%); 
+html, body {
+  @include rect(100%, 100%);
+  @include overflow();
+}
+.hdbox{
+  @include rect(1280px,100%);
+  margin:0 auto;
 }
 .headbox {
-  @include rect(100%, 42px);
-  background:url(//ossweb-img.qq.com/images/lol/title/top20190121.jpg) no-repeat;
-}
+  @include rect(1280px,100%);
+  @include background-color(#fff);
+  @include flexbox();
+  @include justify-content(space-between);
+  @include align-items();
+  margin:20px auto;
+  .logo {
+    @include rect(139px,45px);
+    img {
+      @include rect(139px,45px);
+    }
+  }
+  .lbox {
+    @include flexbox();
+    @include rect(406px,33px);
+    li {
+      @include rect(80px,33px);
+      @include text-align();
+      
+    }
+    span{
+      @include font-size(20px);
+      margin-right:5px;
+      font-weight:700;
+    }
+    a{
+      @include font-size(16px);
+      @include color(#7d7d7d);
+    }
+    li:hover {
+      border-bottom:3px solid #2bbbdc;
+      @include color(#2bbbdc);
+
+      a {
+        @include color(#2bbbdc);
+      }
+    }
+  }
+  .rbox {
+    @include flexbox();
+    @include rect(300px,40px);
+
+    input {
+      @include rect(260px,40px);
+      outline: none;
+
+    }
+    button {
+      margin:0;
+      padding:0;
+    }
+  }
+} 
+  
+  
+

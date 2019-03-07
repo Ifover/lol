@@ -1,7 +1,7 @@
 @import "@/Scss/reset";
 html, body, #app {
   @include flexbox();
-  @include rect(100%, 100%);
+  // @include rect(100%, 100%);
   @include flex-direction(column);
   @include overflow();
   @include background-color(#eee);
@@ -17,6 +17,7 @@ html, body, #app {
   @include flexbox();
   @include flex-direction(column);
   @include rect(1358px,auto);
+  margin:0 auto;
   .caution {
     @include flexbox();
     @include rect(1358px, 96px);

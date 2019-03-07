@@ -1,0 +1,26 @@
+@import '@/Scss/reset';
+
+html, body {
+  @include rect(100%, 100%);
+  @include overflow();
+}
+.con {
+  @include rect(100%, 100%);
+  margin-top:30px;
+}
+
+.nav {
+  @include flexbox();
+
+  .card-container {
+    margin-left:20px;
+
+    .ant-tabs {
+      @include font-size(14px);
+      // @include background-color(#2bbbdc);
+    }
+  }
+  .rnav {
+    margin-left:350px;
+  }
+}
