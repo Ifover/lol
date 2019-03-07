@@ -1,0 +1,9 @@
+@import '@/qunar/reset.scss';
+
+html, body, #header {
+  @include rect(100%, 100%); 
+}
+.headbox {
+  @include rect(100%, 42px);
+  background:url(//ossweb-img.qq.com/images/lol/title/top20190121.jpg) no-repeat;
+}
