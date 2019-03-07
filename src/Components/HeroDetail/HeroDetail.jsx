@@ -4,6 +4,9 @@ import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
 import './style.scss'
 
+
+import Equipment from './Equipment/Equipment'
+
 class HeroDetail extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +14,8 @@ class HeroDetail extends Component {
             id: this.props.id,
             skillIndex: 0,
             heroDetail: {},
-            success: false
+            success: false,
+            skinIndex: 0,
         }
 
     }
@@ -33,16 +37,30 @@ class HeroDetail extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         var galleryThumbs = new Swiper('.gallery-thumbs', {
             width: 60,
-            slidesPerView: this.state.heroDetail.skins.length,
+            slidesPerView: 10,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
+
+
         });
+        let _this = this
         var galleryTop = new Swiper('.gallery-top', {
             loop: false,
             width: 1240,
             thumbs: {
                 swiper: galleryThumbs,
             },
+            observer: true, //修改swiper自己或子元素时，自动初始化swiper
+            observeParents: true, //修改swiper的父元素时，自动初始化swiper
+            // on: {
+            //     slideChangeTransitionEnd: function () {
+            //         console.log(this.realIndex);
+            //         _this.setState({
+            //             skinIndex: this.realIndex
+            //         })
+            //     },
+            // },
+
         });
     }
 
@@ -50,14 +68,32 @@ class HeroDetail extends Component {
         this.setState({
             skillIndex: value
         })
-        console.log(this);
+        // console.log(value);
     }
+
+
 
     render() {
         let skillArr = [];
         let skinSmallArr = [];
         let skinBigArr = [];
+        let skinNowName = '';
+        let spell = [];
+        let d4Info = [];
+        let hero_Detail = {
+            name: this.state.heroDetail.name,
+            title: this.state.heroDetail.title,
+            tags: []
+        }
+
+
         if (this.state.success) {
+            this.state.heroDetail.tags.map((item, index) => {
+                hero_Detail.tags.push(
+                    <span key={index}>{item}</span>
+                )
+
+            })
             skillArr.push(
                 <li className={this.state.skillIndex === 0 ? 'active' : ''}
                     onClick={this.fn_Change_Skill_Index.bind(this, 0)} key={0}>
@@ -67,6 +103,7 @@ class HeroDetail extends Component {
             )
             this.state.heroDetail.spells.map((item, index) => {
                 //技能图标
+                // console.log(index + 1);
                 skillArr.push(
                     <li className={this.state.skillIndex === index + 1 ? 'active' : ''}
                         onClick={this.fn_Change_Skill_Index.bind(this, index + 1)}
@@ -77,6 +114,8 @@ class HeroDetail extends Component {
                 )
             })
 
+            skinNowName = this.state.heroDetail.skins[this.state.skinIndex].name;
+            skinNowName = skinNowName === 'default' ? '默认皮肤' : skinNowName;
             this.state.heroDetail.skins.map((item, index) => {
                 //皮肤小图标
                 skinSmallArr.push(
@@ -92,6 +131,85 @@ class HeroDetail extends Component {
                 )
             })
 
+            switch (this.state.skillIndex) {
+                case 0:
+                    spell.push(
+                        <div className="cd-detail" key={0}>
+                            <h4>{this.state.heroDetail.passive.name}<span className='passive'>被动技能</span></h4>
+                            <p dangerouslySetInnerHTML={{__html: this.state.heroDetail.passive.description}}></p>
+                        </div>
+                    )
+                    break;
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    let skillWht = ''
+
+                    switch (this.state.skillIndex) {
+                        case 1:
+                            skillWht = 'Q';
+                            break;
+                        case 2:
+                            skillWht = 'W';
+                            break;
+                        case 3:
+                            skillWht = 'E';
+                            break;
+                        case 4:
+                            skillWht = 'R';
+                            break;
+                    }
+                    let leveltip = []
+                    this.state.heroDetail.spells[this.state.skillIndex - 1].leveltip.label.map((item, index) => {
+                        // console.log(item);
+                        leveltip.push(
+                            <li key={index}>{`${item}：${this.state.heroDetail.spells[this.state.skillIndex - 1].leveltip.effect[index]}`}  </li>
+                        )
+                    })
+
+                    spell.push(
+                        <div className="cd-detail" key={0}>
+                            <h4>{this.state.heroDetail.spells[this.state.skillIndex - 1].name}<span>快捷键：{skillWht}</span>
+                            </h4>
+                            <p dangerouslySetInnerHTML={{__html: this.state.heroDetail.spells[this.state.skillIndex - 1].tooltip}}></p>
+                            <ul>
+                                {leveltip}
+                            </ul>
+                        </div>
+                    )
+                    break;
+
+
+            }
+            d4Info.push(
+                <ul key={0}>
+                    <li title={this.state.heroDetail.info.attack}>
+                        物理攻击
+                        <a>
+                            <i style={{background: '#f2c500', width: this.state.heroDetail.info.attack + '0%'}}></i>
+                        </a>
+                    </li>
+                    <li title={this.state.heroDetail.info.magic}>
+                        魔法攻击
+                        <a>
+                            <i style={{background: '#f59d00', width: this.state.heroDetail.info.magic + '0%'}}></i>
+                        </a>
+                    </li>
+                    <li title={this.state.heroDetail.info.defense}>
+                        防御能力
+                        <a>
+                            <i style={{background: '#2c97de', width: this.state.heroDetail.info.defense + '0%'}}></i>
+                        </a>
+                    </li>
+                    <li title={this.state.heroDetail.info.difficulty}>
+                        上手难度
+                        <a>
+                            <i style={{background: '#1eca6b', width: this.state.heroDetail.info.difficulty + '0%'}}></i>
+                        </a>
+                    </li>
+                </ul>
+            )
         }
 
         return (
@@ -107,7 +225,7 @@ class HeroDetail extends Component {
                             <span></span>
                             <a>全部英雄</a>
                             <span></span>
-                            <a className="te">九尾狐狸 阿狸</a>
+                            <a className="te">{hero_Detail.name} {hero_Detail.title}</a>
                         </div>
                     </div>
                 </div>
@@ -121,24 +239,18 @@ class HeroDetail extends Component {
                             </div>
                             <div className="hero-attribute">
                                 <div className="hero-box">
-                                    <p className="a-1">九尾妖狐</p>
-                                    <p className="a-2"><b>阿狸</b></p>
+                                    <p className="a-1">{hero_Detail.name}</p>
+                                    <p className="a-2"><b>{hero_Detail.title}</b></p>
                                     <p className="a-3">
-                                        <span>法师</span>
-                                        <span>刺客</span>
+                                        {hero_Detail.tags}
                                     </p>
-                                    <ul>
-                                        <li>物理攻击<a><i className="b-1"></i></a></li>
-                                        <li>魔法攻击<a><i className="b-2"></i></a></li>
-                                        <li>防御能力<a><i className="b-3"></i></a></li>
-                                        <li>上手难度<a><i className="b-4"></i></a></li>
-                                    </ul>
+                                    {d4Info}
                                     <a href='#' className='btn_buy'></a>
                                 </div>
                             </div>
                             <div className="hero-skin">
                                 <div className="top">
-                                    <h3>{}</h3>
+                                    <h3>{skinNowName}</h3>
                                 </div>
                                 <div className="swiper-container gallery-thumbs">
                                     <ul className="swiper-wrapper">
@@ -163,28 +275,10 @@ class HeroDetail extends Component {
                                         {skillArr}
                                     </ul>
                                 </div>
-                                <div className="cd-detail">
-                                    <h4>瓦斯塔亚的优雅<span>被动技能</span></h4>
-                                    <p>每当阿狸在短时间内对一个英雄造成了2次技能命中，她就会暂时获得移动速度加成。</p>
-                                </div>
+                                {spell}
                             </div>
                             <h3>推荐装备</h3>
-                            <div className="equipment">
-                                <div className="equipment-li active">召唤师峡谷</div>
-                                <div className="equipment-li">极地大乱斗</div>
-                                <span>起始装备</span>
-                                <p>
-                                    <img src="https://ossweb-img.qq.com/images/lol/img/item/1056.png"/>
-                                    <img src="https://ossweb-img.qq.com/images/lol/img/item/1056.png"/>
-                                    <img src="https://ossweb-img.qq.com/images/lol/img/item/1056.png"/>
-                                </p>
-                                <span>核心装备</span>
-                                <p>
-                                    <img src="https://ossweb-img.qq.com/images/lol/img/item/3285.png"/>
-                                    <img src="https://ossweb-img.qq.com/images/lol/img/item/3285.png"/>
-                                    <img src="https://ossweb-img.qq.com/images/lol/img/item/3285.png"/>
-                                </p>
-                            </div>
+                            <Equipment></Equipment>
                             <h3>使用技巧</h3>
                             <div className="use-skill">
                                 <div className="top">

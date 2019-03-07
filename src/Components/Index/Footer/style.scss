@@ -1,0 +1,73 @@
+@import "@/Scss/reset";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-weight: normal;
+}
+
+.footer {
+  width: 1920px;
+  height: 265px;
+  background: #e3e2e2;
+  overflow: hidden;
+}
+
+.margin {
+  width: 1418px;
+  height: 265px;
+  margin: 0 auto;
+
+  .footer-left {
+    width: 400px;
+    float: left;
+
+    .footer-left-1 {
+      width: 193px;
+      height: 39px;
+      background-image: url('http://ossweb-img.qq.com/images/lol/v3/topfoot-spr.png');
+      background-position: -211px 0;
+      margin-top: 100px;
+      float: left;
+    }
+
+    .footer-left-2 {
+      width: 90px;
+      height: 59px;
+      background-image: url('http://ossweb-img.qq.com/images/lol/v3/topfoot-spr.png');
+      background-position: 194px 98px;
+      float: left;
+      margin: 85px 0 0 30px;
+    }
+  }
+
+  .footer-right {
+    width: 750px;
+    height: 265px;
+    margin-left: 600px;
+
+    .footer-top {
+      p {
+        width: 750px;
+        padding-top: 55px;
+
+        a {
+          font-size: 12px;
+          color: #9f9378;
+        }
+
+        span {
+          color: #9f9378;
+        }
+      }
+
+      h3 {
+        font-size: 12px;
+        color: #9f9378;
+        margin-top: 5px;
+      }
+    }
+  }
+}

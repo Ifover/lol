@@ -81,8 +81,8 @@ html, body {
         }
 
         .a-3 span {
-          width: 42px;
           height: 28px;
+          padding: 0 8px;
           border-radius: 5px;
           background: #00a483;
           display: inline-block;
@@ -102,36 +102,12 @@ html, body {
               display: inline-block;
               line-height: 14px;
               margin-left: 10px;
-            }
 
-            a .b-1 {
-              width: 30%;
-              height: 100%;
-              display: inline-block;
-              background: #f2c500;
+              i {
+                display: block;
+                height: 14px;
+              }
             }
-
-            a .b-2 {
-              width: 80%;
-              height: 100%;
-              display: inline-block;
-              background: #f59d00;
-            }
-
-            a .b-3 {
-              width: 40%;
-              height: 100%;
-              display: inline-block;
-              background: #2c97de;
-            }
-
-            a .b-4 {
-              width: 50%;
-              height: 100%;
-              display: inline-block;
-              background: #1eca6b;
-            }
-
 
           }
         }
@@ -155,6 +131,7 @@ html, body {
       right: 0;
       bottom: 0;
       z-index: 1;
+      overflow: hidden;
 
       .top {
         width: 100%;
@@ -162,7 +139,7 @@ html, body {
 
         h3 {
           float: right;
-          width: 115px;
+          padding: 0 5px;
           height: 40px;
           background: rgba(24, 23, 25, 0.6);
           color: #fff;
@@ -230,7 +207,6 @@ html, body {
 
   .main-left {
     width: 781px;
-    height: 1696px;
     margin-right: 31px;
     float: left;
 
@@ -259,7 +235,7 @@ html, body {
     }
 
     .cd-img {
-      @include rect(781px, 232px);
+      @include rect(781px, auto);
 
       .img {
         @include rect(100%, 100px);
@@ -298,6 +274,12 @@ html, body {
         padding: 14px 30px;
 
         span {
+          padding-left: 10px;
+          font-size: 14px;
+          color: #999;
+        }
+
+        span.passive {
           margin-left: 5px;
           color: #338c7a;
         }
@@ -305,11 +287,10 @@ html, body {
         h4 {
           font-size: 18px;
           color: #333;
-          text-indent: 38px;
         }
 
         p {
-          text-indent: 38px;
+          text-indent: 2em;
           margin-top: 15px;
           color: #333;
         }
@@ -372,7 +353,6 @@ html, body {
         margin-top: 10px;
         border-bottom: 1px solid #eee;
         height: 90px;
-        width: 900px;
       }
 
       p img {
@@ -420,3 +400,25 @@ html, body {
 
 }
 
+scalearmor {
+  color: #ccc;
+}
+
+scaleap {
+  color: #ff00ff !important;
+}
+
+.colorFF00FF {
+  color: #ff00ff !important;
+  font-weight: 500;
+}
+
+.colorCC3300 {
+  color: #CC3300 !important;
+  font-weight: 500;
+}
+
+keywordmajor {
+  color: #333 !important;
+
+}
