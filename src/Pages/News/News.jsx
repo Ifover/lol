@@ -3,6 +3,7 @@ import './style.scss';
 import { Tabs, Pagination, Icon } from 'antd';
 // import PropTypes from 'prop-types';
 import api from '@/api/news';
+import 'antd/dist/antd.css'
 
 const TabPane = Tabs.TabPane;
 class News extends Component {
@@ -74,6 +75,7 @@ class News extends Component {
                 <Tabs
                   defaultActiveKey="1"
                   tabPosition={mode}
+                  // style={{ height: 220 }}
                 >
                   <TabPane tab="综合" key="1">
                   <ul>

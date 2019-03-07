@@ -1,8 +1,9 @@
 @import "@/Scss/reset";
 
 html, body {
-  width: 100%
+  width: 100%;
 }
+
 
 .margin {
   width: 1240px;
@@ -15,7 +16,6 @@ html, body {
 }
 
 .title {
-  width: 1896px;
   height: 120px;
   background: #f7f8f8;
   line-height: 120px;
@@ -68,16 +68,21 @@ html, body {
       z-index: 999;
 
       .hero-box {
-        width: 382px;
-        height: 220px;
-        margin: 50px 0 0 50px;
+        @include rect(100%, 220px);
+        padding: 50px 0 0 50px;
+
+        p {
+          @include rect(100%, auto);
+          margin-bottom: 0 !important;
+        }
 
         .a-1 {
-          font-size: 30px;
+          font-size: 24px;
+          border-bottom: 25px;
         }
 
         .a-2 {
-          font-size: 50px;
+          font-size: 42px;
         }
 
         .a-3 span {
@@ -86,6 +91,7 @@ html, body {
           border-radius: 5px;
           background: #00a483;
           display: inline-block;
+          font: 12px/1.6em "";
           text-align: center;
           line-height: 28px;
           margin: 20px 2px;
@@ -202,18 +208,24 @@ html, body {
 }
 
 .main {
-  height: 1696px;
+  overflow: hidden;
   background: #f7f8f8;
+  padding-bottom: 50px;
 
   .main-left {
     width: 781px;
-    margin-right: 31px;
     float: left;
 
     h3 {
       padding-top: 41px;
       font: 600 16px/2 "";
       color: #338c7a;
+    }
+
+    h6 {
+      font-size: 20px;
+      color: #338c7a;
+      margin-top: 60px
     }
 
     .background-story {
@@ -299,7 +311,7 @@ html, body {
     }
 
     .equipment {
-      @include rect(100%, 434px);
+      @include rect(100%, auto);
       border: 1px solid #e1e1e1;
       background: #fff;
 
@@ -339,24 +351,36 @@ html, body {
         background: #fff;
       }
 
-      span {
-        font-size: 18px;
-        color: #338c7a;
-        text-indent: 40px;
-        display: inline-block;
-        font-weight: 700;
-        margin-top: 30px;
+      #summoner_smite, #aram {
+        padding: 0 25px;
+
       }
 
-      p {
-        margin-left: 30px;
-        margin-top: 10px;
+      dl {
         border-bottom: 1px solid #eee;
-        height: 90px;
-      }
+        padding-left: 30px;
 
-      p img {
-        margin-left: 10px;
+        dt {
+          span {
+            font-size: 18px;
+            color: #338c7a;
+            display: inline-block;
+            font-weight: 700;
+            margin-top: 30px;
+          }
+        }
+
+        dd {
+          display: inline-block;
+
+          margin-top: 10px;
+          margin-right: 20px;
+          height: 90px;
+
+          img {
+
+          }
+        }
       }
 
       h5 {
@@ -397,7 +421,127 @@ html, body {
     }
   }
 
+  .main-right {
+    width: 434px;
+    float: right;
 
+    h3 {
+      padding-top: 41px;
+      font: 400 16px/2 "";
+      color: #338c7a;
+    }
+
+    .my-record {
+      @include rect(100%, 119px);
+      border: 1px solid #e1e1e1;
+      background: #fff;
+      margin-top: 20px;
+
+      p {
+        text-align: center;
+        line-height: 120px;
+
+        a {
+          color: #00a483;
+        }
+      }
+    }
+
+    .strategy {
+      @include rect(100%, auto);
+      background: #fff;
+      border: 1px solid #e1e1e1;
+      margin-top: 20px;
+
+      ul {
+        padding-top: 14px;
+
+        li {
+          @include rect(100%, 56px);
+          padding: 5px 15px;
+          margin: 5px 0;
+          border-bottom: 1px solid #eaeaea;
+
+          p {
+            margin-bottom: 0 !important;
+          }
+
+          .a-1 {
+            width: 230px;
+            float: left;
+
+            .b-2 {
+              color: #9a9898;
+            }
+
+            span {
+              display: inline-block;
+              font: 12px/22px "";
+              width: 200px;
+              white-space: nowrap;
+              overflow: hidden;
+
+              i {
+                @include rect(18px, 18px);
+                border-radius: 50%;
+                background-color: #bebebe;
+                text-align: center;
+                font: 12px/18px "";
+                color: #fbfbfb;
+                margin-right: 4px;
+              }
+
+            }
+
+            img {
+              display: inline-block;
+              vertical-align: middle;
+            }
+          }
+
+          .a-2 {
+            width: 160px;
+            float: right;
+
+            span {
+              display: inline-block;
+              font-size: 10px;
+            }
+
+            .b-1 {
+              margin-left: 30px;
+              color: #9a9898;
+            }
+
+            .b-2 {
+              color: #9a9898;
+
+              a {
+                margin-left: 3px;
+                display: inline-block;
+                width: 100px;
+                height: 13px;
+                padding: 2px;
+                border: 1px solid #e0e0e0;
+                vertical-align: middle;
+                position: relative;
+
+                i {
+                  position: absolute;
+
+                  top: 1px;
+                  height: 9px;
+                  display: inline-block;
+                  background: #00a483;
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 scalearmor {

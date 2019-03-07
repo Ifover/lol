@@ -9,11 +9,10 @@ class Footer extends Component {
     render() {
         return (
             <div className="footer">
-
-                <div className="margin">
+                <div className="footer_margin">
                     <div className="footer-left">
-                        <div className="footer-left-1"></div>
-                        <div className="footer-left-2"></div>
+                        <div className="footer-left-1"/>
+                        <div className="footer-left-2"/>
                     </div>
                     <div className="footer-right">
                         <div className="footer-top">

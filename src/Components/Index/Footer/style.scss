@@ -1,22 +1,24 @@
 @import "@/Scss/reset";
-* {
-  margin: 0;
-  padding: 0;
-}
 
 h3 {
   font-weight: normal;
 }
 
-.footer {
-  width: 1920px;
-  height: 265px;
-  background: #e3e2e2;
-  overflow: hidden;
+body {
+  width: 100%;
+
+  .footer {
+    width: 100%;
+    height: 265px;
+    background: #e3e2e2;
+    overflow: hidden;
+
+  }
 }
 
-.margin {
-  width: 1418px;
+
+.footer_margin {
+  width: 1358px;
   height: 265px;
   margin: 0 auto;
 

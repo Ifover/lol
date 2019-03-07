@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 import axios from 'axios';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
 import './style.scss'
+import {Icon} from 'antd'
 
 
+import Header from '@/Components/Index/Header/Header'
+import Footer from '@/Components/Index/Footer/Footer'
 import Equipment from './Equipment/Equipment'
+import Strategy from './Strategy/Strategy'
 
 class HeroDetail extends Component {
     constructor(props) {
@@ -26,7 +31,7 @@ class HeroDetail extends Component {
                 name: this.state.id
             }
         }).then(data => {
-            console.log(data.data.data);
+            // console.log(data.data.data);
             this.setState({
                 heroDetail: data.data.data,
                 success: true
@@ -72,7 +77,6 @@ class HeroDetail extends Component {
     }
 
 
-
     render() {
         let skillArr = [];
         let skinSmallArr = [];
@@ -80,6 +84,10 @@ class HeroDetail extends Component {
         let skinNowName = '';
         let spell = [];
         let d4Info = [];
+        let blocks = [];
+        let uUse = []
+        let aUse = []
+
         let hero_Detail = {
             name: this.state.heroDetail.name,
             title: this.state.heroDetail.title,
@@ -88,6 +96,29 @@ class HeroDetail extends Component {
 
 
         if (this.state.success) {
+            uUse.push(
+                <div className="top" key={'allytips'}>
+                    <p className="a-1">当你使用{hero_Detail.name}</p>
+                    {
+                        this.state.heroDetail.allytips.map((item, index) => {
+                            return (
+                                <p key={index}>{item}</p>
+                            )
+                        })
+                    }
+                </div>
+            )
+            aUse.push(
+                <div className="bottom" key={'enemytips'}>
+                    <p className="a-1">敌人使用{hero_Detail.name}</p>
+                    {
+                        this.state.heroDetail.enemytips.map((item, index) => {
+                            return (
+                                <p key={index}>{item}</p>
+                            )
+                        })
+                    }                </div>
+            )
             this.state.heroDetail.tags.map((item, index) => {
                 hero_Detail.tags.push(
                     <span key={index}>{item}</span>
@@ -210,21 +241,24 @@ class HeroDetail extends Component {
                     </li>
                 </ul>
             )
+
+            blocks = this.state.heroDetail.blocks
+
         }
 
         return (
             <div id='box'>
-                {/*<div id="header"/>*/}
+                <Header/>
                 <div className="title">
                     <div className="margin">
                         <div>
-                            <span></span>
-                            <a>英雄联盟首页</a>
-                            <span></span>
+                            <span><Icon type="home" theme="filled" /></span>
+                            <Link to='//lol.ifover.com'>英雄联盟首页</Link>
+                            <span><Icon type="right" /></span>
                             <a>游戏资料</a>
-                            <span></span>
+                            <span><Icon type="right" /></span>
                             <a>全部英雄</a>
-                            <span></span>
+                            <span><Icon type="right" /></span>
                             <a className="te">{hero_Detail.name} {hero_Detail.title}</a>
                         </div>
                     </div>
@@ -278,21 +312,11 @@ class HeroDetail extends Component {
                                 {spell}
                             </div>
                             <h3>推荐装备</h3>
-                            <Equipment></Equipment>
+                            <Equipment blocks={blocks}/>
                             <h3>使用技巧</h3>
                             <div className="use-skill">
-                                <div className="top">
-                                    <p className="a-1">当你使用九尾妖狐</p>
-                                    <p>- 用【魅惑妖术】来启动你的连招，它将会使【欺诈宝珠】和【妖异狐火】更容易命中敌人。</p>
-                                    <p>- 在团战中用魅惑妖术先手，并用【灵魄突袭】追击落单的敌人。</p>
-                                    <p>-
-                                        【灵魄突袭】能够为阿狸的其它技能创造机会，它可以为【魅惑妖术】清出一条路，有助于让【欺诈宝珠】来回命中敌人两次，并且突进到敌人身边可以让【妖异狐火】更易选中目标。</p>
-                                </div>
-                                <div className="bottom">
-                                    <p className="a-1">敌人使用九尾妖狐</p>
-                                    <p>- 在终极技能【灵魄突袭】进入冷却阶段后，阿狸的生存能力可谓低得令人发指。</p>
-                                    <p>- 呆在小兵后面，来让【魅惑妖术】难以命中，能够显著地降低阿狸潜在的爆发伤害。</p>
-                                </div>
+                                {uUse}
+                                {aUse}
                             </div>
                         </div>
                         <div className="main-right">
@@ -300,26 +324,16 @@ class HeroDetail extends Component {
                             <div className="my-record">
                                 <p>您无法查看使用该英雄的记录，请<a>[登陆]</a>，并绑定所在大区。</p>
                             </div>
-                            <h4>推荐攻略</h4>
-                            <div className="strategy">
-                                <ul>
-                                    <li>
-                                        <p className="a-1">
-                                            <span className="b-1"><img src="images/record-1.jpg"/>新版本T1中单阿狸玩法攻略</span>
-                                            <span className="b-2">来源:玩家投稿</span>
-                                        </p>
-                                        <p className="a-2">
-                                            <span className="b-1">2017-06-17</span>
-                                            <span className="b-2">评分:<a><i></i></a></span>
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
+                            <h3>推荐攻略</h3>
+                            <Strategy/>
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
         )
+
+
     }
 
 }
