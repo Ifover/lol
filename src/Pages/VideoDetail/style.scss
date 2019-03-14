@@ -1,0 +1,424 @@
+html, body {
+  width: 100%;
+}
+
+#mode-player {
+  width: 1345px;
+  height: 630px;
+}
+
+.vedionav {
+  width: 100%;
+  background: #1b2128;
+  height: 74px;
+
+  .videoMargin {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 70px 0 60px;
+    display: flex;
+    justify-content: space-between;
+
+    .nav-l {
+      width: 249px;
+      height: 74px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+        display: block;
+      }
+
+      a {
+        display: block;
+        font: 600 22px/74px '';
+        color: #ac8b57;
+
+        &:hover {
+          color: #ecbd70;
+        }
+      }
+    }
+
+    .nav-m {
+      width: 417px;
+      height: 74px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+
+      a {
+        display: block;
+        font: 16px/16px '';
+        color: #ac8b57;
+
+        &:hover {
+          color: #ffffff;
+        }
+
+        span {
+          font: 9px/9px '';
+        }
+      }
+    }
+
+    .nav-r {
+      width: 276px;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      i.altt {
+        font-size: 16px;
+        line-height: 74px;
+        color: #ffffff;
+
+        a {
+          font: 16px/16px '';
+          color: #ac8b57;
+        }
+      }
+
+      .head-userinfo-avatar {
+        width: 48px;
+        height: 48px;
+        position: relative;
+        right: -40px;
+
+        img {
+          display: block;
+          width: 36px;
+          height: 36px;
+          margin: 6px auto 0 auto;
+          border-radius: 50%;
+        }
+
+        span {
+          display: block;
+          background-position: -304px -39px;
+          width: 48px;
+          height: 48px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-image: url(//ossweb-img.qq.com/images/lol/v/v2/comm-spr.png);
+          background-size: 405px 178px;
+          background-repeat: no-repeat;
+        }
+      }
+
+    }
+  }
+}
+
+.video-play {
+  width: 100%;
+  height: 796px;
+  background: #12171d url(//ossweb-img.qq.com/images/lol/v/v2/video-bg.png) no-repeat top center;
+  color: #777878;
+  box-sizing: content-box;
+
+  .video-layout {
+    width: 1345px;
+    margin: 0 auto;
+
+
+  }
+
+  .mod-row-box {
+    padding-top: 37px;
+    overflow: hidden;
+    height: 116px;
+
+    .video-title-box {
+      height: 38px;
+      margin-bottom: 24px;
+      width: 100%;
+
+      .video-title {
+        float: left;
+        height: 38px;
+        line-height: 25px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #e4e4e4;
+      }
+    }
+
+    .video-video-detail {
+      width: 100%;
+      height: 18px;
+      line-height: 18px;
+
+      .video-release-time {
+        float: left;
+        margin-right: 40px;
+      }
+
+      .video-plays-num {
+        float: left;
+        position: relative;
+        padding-left: 27px;
+        margin-right: 10px;
+
+        i {
+          color: #957436;
+          margin-right: 15px;
+        }
+      }
+    }
+
+  }
+
+}
+
+.videomargin {
+  width: 100%;
+  background: #f6f7f7;
+
+  .main {
+    width: 1345px;
+    display: flex;
+    margin: 0 auto;
+
+    justify-content: center;
+
+    .main-l {
+      width: 75%;
+
+      .main-l-t {
+        height: 94px;
+
+        p {
+          font: 26px/94px '';
+          color: #333333;
+          float: left;
+        }
+
+        a {
+          display: block;
+          font: 12px/94px '';
+          color: #666666;
+          float: right;
+        }
+      }
+
+      .main-l-m {
+        height: 190px;
+
+        ul {
+          display: flex;
+          justify-content: space-between;
+
+          li {
+            overflow: hidden;
+            width: 198px;
+            height: 190px;
+            text-align: center;
+
+            img {
+              width: 198px;
+              height: 110px;
+            }
+
+            span {
+              display: block;
+              text-align: left;
+              text-indent: 2em;
+              font: 12px/22px '';
+              color: #333333;
+              padding: 5px;
+            }
+
+            p {
+              text-align: left;
+              font: 11px/31px '';
+              color: #909090;
+              padding-left: 5px;
+
+              i {
+                color: #7ea1a6;
+              }
+            }
+
+            &:hover {
+              background: #ffffff;
+
+              a {
+                color: #8ecfe9;
+              }
+            }
+          }
+        }
+      }
+
+      .main-l-b {
+        height: 171px;
+        width: 100%;
+
+        .main-l-b-t {
+          overflow: hidden;
+
+          h3 {
+            font: 26px/48px '';
+            color: #2a2a2a;
+            padding: 11px;
+            float: left;
+
+            span {
+              font: 12px/71px '';
+              color: #cccccc;
+
+              a {
+                font: 12px/71px '';
+                color: #cccccc;
+
+                &:hover {
+                  color: #bb9a6c;
+                }
+              }
+            }
+          }
+
+          i {
+            display: block;
+            color: #bb9a6c;
+            float: right;
+            font: 12px/71px '';
+            cursor: pointer;
+          }
+        }
+
+        .main-l-b-b {
+          width: 100%;
+          height: 171px;
+
+
+          .evolutebox {
+            position: relative;
+            padding: 12px;
+            width: 100%;
+            height: auto;
+            min-height: 112px;
+            border: 3px solid #f0f0f0;
+
+            img {
+              display: block;
+              float: left;
+              width: 50px;
+              height: 50px;
+              margin-right: 20px;
+            }
+
+            .evolute {
+              width: 80%;
+              float: left;
+              min-height: 71px;
+              height: 71px;
+              background: #ffffff;
+              border: none;
+            }
+
+            .login {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 100px;
+              //height: 89px;
+              min-height: 106px;
+              background: #bb9a6c;
+              font: 16px/100px '';
+              color: #ffffff;
+              text-align: center;
+            }
+
+
+          }
+          h4 {
+            //position: absolute;
+            //top: 150px;
+            //left: 300px;
+            font: 24px/2 '';
+            text-align: center;
+            color: #aaaaaa;
+          }
+        }
+      }
+    }
+
+    .main-r {
+      width: 25%;
+      margin-left: 38px;
+
+      .main-r-t {
+        height: 66px;
+        padding-top: 40px;
+
+        p {
+          font: 26px/26px '';
+          color: #333333;
+          float: left;
+        }
+      }
+
+      .main-r-b {
+        margin-top: 30px;
+        overflow: hidden;
+
+        ul {
+          li {
+            width: 100%;
+            height: 90px;
+            margin-bottom: 13px;
+
+            a {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: space-between;
+              color: #909090;
+            }
+
+            &:hover {
+              a {
+                color: #8ecfe9;
+              }
+            }
+
+            img {
+              display: block;
+              width: 58%;
+              margin-right: 2%;
+              height: 90px;
+            }
+
+            .title_bottom {
+              width: 40%;
+              position: relative;
+
+              p {
+                position: absolute;
+                bottom: 0;
+
+                i {
+                  display: inline-block;
+                  font: 10px/16px '';
+                  color: #909090;
+                  margin-right: 10px;
+                }
+
+                span {
+                  display: inline-block;
+                }
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
+}

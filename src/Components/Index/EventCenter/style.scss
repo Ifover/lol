@@ -2,16 +2,21 @@
 
 
 .big-box {
-  @include rect(1920px, 745px);
+  @include rect(100%, 745px);
   @include background-color(#eee);
+  padding-top: 71px;
+
+  ul {
+    margin-bottom: 0 !important;
+  }
 
   .margin {
-    @include rect(1418px, auto);
+    @include rect(1345px, auto);
     margin: 0 auto;
 
     .top {
-      @include rect(1365px, 40px);
-      @include flexbox()
+      @include rect(100%, 40px);
+      @include flexbox();
       @include justify-content(space-between);
       //@include margin-left(23px);
       //position: relative;
@@ -44,7 +49,7 @@
         display: block;
         @include rect(4px, 28px);
         @include background-color(#1da6ba);
-        @include display(inline-block)
+        @include display(inline-block);
         position: absolute;
         top: 2px;
         left: -10px;
@@ -69,10 +74,16 @@
     }
 
     .center {
-      @include rect(1418px, 200px);
+      @include rect(100%, 200px);
       margin-top: 26px;
       display: inline-block;
       position: relative;
+
+
+      .swiper-slide {
+        margin-right: 16px;
+      }
+
 
       .center1 {
         @include background-color(#ccc);
@@ -148,8 +159,8 @@
           span {
             display: block;
             width: 85px;
-            height: 65px;
-            line-height: 65px;
+            height: 55px;
+            line-height: 55px;
             text-align: center;
 
             img {
@@ -229,7 +240,7 @@
       }
 
       .center2-bottom {
-        @include rect(214px, 30px)
+        @include rect(214px, 30px);
         margin: 16px 0 0 24px;
 
         h3 {
@@ -238,7 +249,7 @@
         }
 
         .te2 {
-          @include rect(80px, 27px)
+          @include rect(80px, 27px);
           border: 1px solid #bb9a6c;
           color: #bb9a6c;
           font-size: 10px;
@@ -262,7 +273,7 @@
 
     .bottom {
       @include rect(100%, 300px);
-      @include flexbox()
+      @include flexbox();
       @include justify-content(space-between);
       margin-top: 50px;
 
@@ -291,6 +302,15 @@
               position: relative;
               text-align: center;
 
+              &.active {
+                border-bottom: 3px solid #1da6ba;
+                font-weight: 700;
+
+                span {
+                  color: #1da6ba;
+                }
+              }
+
               span {
                 margin-right: 20px;
                 color: #666;
@@ -304,7 +324,6 @@
 
               span {
                 color: #1da6ba;
-
               }
             }
           }
@@ -321,7 +340,7 @@
             li {
               @include rect(151px, 257px);
               float: left;
-              margin-left: 10px;
+              margin-right: 10px;
 
               img {
                 @include rect(151px, 151px);
@@ -345,7 +364,7 @@
 
               .ranking {
                 @include rect(151px, 54px);
-                @include flexbox()
+                @include flexbox();
                 @include justify-content(space-between);
                 @include padding(0 10px);
                 background: #fff;
@@ -392,6 +411,7 @@
           font-weight: 400;
           background-color: #e0e0e0;
           margin-top: 20px;
+          margin-bottom: 0 !important;
 
           .a-2 {
             margin-left: 90px;
@@ -434,6 +454,7 @@
             .a-2 {
               color: #000;
               width: 165px;
+
               img {
                 @include rect(25px, 25px);
                 display: inline-block;

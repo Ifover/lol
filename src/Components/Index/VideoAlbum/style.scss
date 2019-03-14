@@ -1,20 +1,23 @@
 @import "@/Scss/reset";
 
-.layout {
+.layoutViedeo {
   @include background-color(#e3e2e2);
 }
 
+a {
+  text-decoration: none !important;
+}
 
 .video-album {
   //width: ;
-  @include rect(1360px, 593px);
+  @include rect(1345px, 593px);
   margin: 0 auto;
   @include padding(70px 0 60px 0);
   @include flexbox();
   @include justify-content(space-between);
 
 
-  .title {
+  .titleAlbum {
     @include flexbox();
 
     h2 {
@@ -152,9 +155,9 @@
   }
 
   .box_right {
-    @include rect(498px, auto);
+    @include rect(500px, auto);
 
-    .title {
+    .titleAlbum {
       .title-right {
         @include rect(370px, auto);
 

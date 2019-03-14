@@ -1,0 +1,116 @@
+
+.herohouse {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 30px;
+  background: #f7f8f8;
+
+  .margin {
+    width: 1238px;
+
+    .herohouse-top {
+      width: 100%;
+      height: 96px;
+      line-height: 96px;
+
+      span {
+        color: #a9a9a9;
+      }
+
+      a {
+        color: #a9a9a9;
+        margin: 0 20px;
+      }
+    }
+
+    .herohouse-center {
+      width: 100%;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #e1e1e1;
+      border-top: 0;
+
+      .herohouse-center-list {
+        width: 100%;
+        height: 53px;
+        border-top: 4px solid #d7d7d7;
+        border-bottom: 1px solid #e2e2e2;
+        background: #f0f0f0;
+
+        .c-1 {
+          display: inline-block;
+          width: 160px;
+          height: 53px;
+          margin-top: -4px;
+          cursor: pointer;
+          text-align: center;
+          line-height: 53px;
+          font-size: 16px;
+          color: #525252;
+          text-decoration: none;
+        }
+      }
+
+      .ant-radio-group {
+        padding: 20px 0 0 20px;
+
+        label {
+          color: #666;
+        }
+      }
+
+      .herohouse-img {
+        margin-top: 20px;
+        width: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+        padding: 0 25px;
+        li {
+          width: 90px;
+          height: 100px;
+          float: left;
+          margin: 10px 0;
+
+          img {
+            width: 66px;
+            height: 65px;
+            margin: 0 auto 7px;
+            display: block;
+          }
+
+          p {
+            text-align: center;
+            line-height: 15px;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+}
+
+.herohouse-img::-webkit-scrollbar {
+  display: block !important;
+  width: 8px;
+  height: 100%;
+
+}
+
+.herohouse-img::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #abc0c3;
+}
+
+.c-1:hover {
+  color: #00a383 !important;
+  background-color: #fff;
+  border-top: 4px solid #00a383;
+}
+
+.active2 {
+  color: #00a383 !important;
+  background-color: #fff;
+  border-top: 4px solid #00a383;
+}
+

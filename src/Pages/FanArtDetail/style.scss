@@ -1,0 +1,338 @@
+html, body {
+  background: #f1f1f1;
+  width: 100%;
+  height: auto;
+}
+
+#Lfanart {
+  background-color: #f1f1f1;
+}
+
+.fanlayout {
+  width: 1210px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+
+  #main {
+    // padding-left: 248px;
+    .nav {
+      height: 61px;
+
+      a {
+        display: block;
+        font: 12px/60px '';
+        color: #7d7d7d;
+      }
+    }
+
+    .detail {
+      position: relative;
+      width: 940px;
+      height: auto;
+      background: #ffffff;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-align: center;
+      padding: 53px 0 80px 0;
+
+      h3 {
+        font: 600 30px/64px '';
+      }
+
+      .p1 {
+        width: 55px;
+        height: 29px;
+        border-bottom: 2px solid #d4d4d4;
+        color: #aaaaaa;
+        margin-left: 442px;
+      }
+
+      .p2 {
+        font: 12px/38px '';
+        color: #aaaaaa;
+      }
+
+      .p3 {
+        font: 16px/48px '';
+        text-align: left;
+        padding-left: 30px;
+
+
+      }
+
+      .photo {
+        overflow: hidden;
+
+        ul {
+          margin: 30px 0 0 351px;
+
+          li {
+            float: left;
+            width: 102px;
+            height: 102px;
+            border: 1px solid #dbdbdb;
+            border-radius: 50%;
+            color: #dbdbdb;
+            margin-right: 33px;
+            cursor: pointer;
+
+            i {
+              margin-top: 30px;
+              width: 20px;
+              height: 20px;
+
+              svg {
+                width: 100%;
+                height: 100%;
+              }
+            }
+
+            &:hover {
+              color: #2bbbe3;
+              border-color: #2bbbe3;
+            }
+
+            img {
+              margin: 30px 0 18px 0;
+            }
+          }
+        }
+      }
+
+      .user {
+        position: absolute;
+        top: 0px;
+        right: -270px;
+        z-index: 111;
+
+        .user-top {
+          width: 230px;
+          background: #ffffff;
+          margin-bottom: 20px;
+          border-radius: 10px;
+          text-align: center;
+          padding: 30px 0;
+
+          .userimg {
+            border-radius: 50%;
+          }
+
+          h4 {
+            font: 16px/44px '';
+            color: #000000;
+          }
+
+          .btn_box {
+            width: 90px;
+            height: 32px;
+            background: #2bbbdc;
+            color: #ffffff;
+            font: 12px/32px '';
+            margin: 10px 0 20px 70px;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+
+          h5 {
+            font: 12px/22px '';
+            color: #525151;
+          }
+
+          .box2 {
+            border-bottom: 1px solid #f1f1f1;
+            height: 68px;
+            padding-top: 4px;
+            font: 12px/22px '';
+            color: #2bbbdc;
+          }
+
+          .box3 {
+            font: 600 12px/24px '';
+            color: #000000;
+            padding: 28px 0;
+
+            span {
+              font: 12px/24px '';
+              color: #7d7d7d;
+            }
+
+            .box3-left {
+              float: left;
+              width: 115px;
+            }
+
+            .box3-right {
+              float: left;
+              width: 115px;
+            }
+          }
+        }
+
+        .user-bottom {
+          width: 230px;
+          height: 66px;
+          background: #ffffff;
+          border-radius: 10px;
+          padding: 20px 0;
+
+          i > svg {
+            width: 26px;
+            height: 26px;
+          }
+
+          h6 {
+            font: 12px/20px '';
+            color: #7d7d7d;
+            margin-bottom: 0 !important;
+          }
+        }
+      }
+    }
+
+    .comment {
+
+
+      .comment-bottom {
+        width: 940px;
+        background: #ffffff;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        padding: 21px 0 0 30px;
+
+        h4 {
+          font: 12px/40px '';
+          color: #7d7d7d;
+        }
+
+        textarea {
+          display: block;
+          width: 885px;
+          height: 148px;
+          border: 1px solid #dddddd;
+          color: #757575;
+          border-radius: 5px;
+          font: 12px/30px '';
+          text-indent: 5px;
+          margin-bottom: 14px;
+        }
+
+        .emit {
+          width: 126px;
+          height: 38px;
+          background: #ffb670;
+          border-radius: 5px;
+          text-align: center;
+          margin-bottom: 45px;
+
+          a {
+            display: block;
+            font: 12px/38px '';
+            color: #ffffff;
+          }
+        }
+
+        .evalute {
+          width: 72px;
+          height: 32px;
+          margin-top: 40px;
+          border-bottom: 3px solid #2bbbdc;
+          color: #2bbbdc;
+          font: 600 18px/18px '';
+        }
+
+        .noevalute {
+          text-align: center;
+          margin-top: 20px;
+        }
+
+        span {
+          text-align: center;
+          display: block;
+          font: 12px/62px '';
+          color: #96a9ad;
+        }
+      }
+    }
+  }
+}
+
+.fanfooter {
+  height: 158px;
+  position: relative;
+  background: #e6e6e6;
+  padding-left: 248px;
+  width: 100%;
+
+  .fanmargin {
+    width: 1140px;
+    margin: 0 auto;
+
+    .footer-left {
+      float: left;
+      width: 424px;
+      // padding-left: 13px;
+      ul {
+        display: flex;
+        justify-content: space-between;
+
+        .li1 {
+          margin: 62px 21px 0 0;
+        }
+
+        .li2 {
+          margin: 46px 48px 0 0;
+        }
+
+        .li3 {
+          a {
+            width: 48px;
+            text-align: center;
+            font: 10px/30px '';
+            color: #757575;
+            margin: 25px 21px 0 0;
+          }
+        }
+
+        li {
+          a {
+            display: block;
+          }
+        }
+      }
+    }
+
+    .footer-right {
+      float: left;
+      margin: 26px 0 0 60px;
+
+      p {
+        color: #3fa5bc;
+
+        a, span {
+          color: #3fa5bc;
+        }
+      }
+
+      .p1 {
+        font: 12px/30px '';
+      }
+
+      .p2 {
+        font: 12px/22px '';
+      }
+    }
+  }
+
+  .bg1 {
+    position: absolute;
+    left: 0px;
+    top: -177px;
+  }
+
+  .bg2 {
+    position: absolute;
+    right: 0px;
+    top: -232px;
+  }
+}
+

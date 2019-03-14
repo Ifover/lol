@@ -8,6 +8,59 @@ html, body {
   @include rect(100%, auto);
   position: relative;
 
+  .testt {
+    //position: relative;
+    overflow: hidden;
+
+  }
+
+  .top-right-5 {
+    width: 160px;
+    height: 40px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 32px;
+    background: url("http://ossweb-img.qq.com/images/lol/v3/topfoot-spr.png");
+    background-position: 188px -38px;
+  }
+
+  .top-right-6 {
+    .a-1 {
+      font-size: 15px;
+      color: #888787;
+
+    }
+
+    .a-2 {
+      font-size: 15px;
+      color: #eed179;
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .a-3 {
+      display: inline-block;
+      border: 2px solid #93702d;
+      width: 82px;
+      height: 26px;
+      font-size: 12px;
+      color: #f5d185;
+      background: rgba(0, 0, 0, .65);
+      text-align: center;
+      line-height: 24px;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+
+    width: 240px;
+    height: 26px;
+    position: absolute;
+    bottom: 10px;
+    right: 150px;
+  }
+
   .big-box {
     @include rect(100%, 131px);
     position: absolute;
@@ -116,6 +169,49 @@ html, body {
         }
       }
 
+      .head-app-normal {
+        float: right;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        margin: 17px 31px 0 0;
+
+        a {
+          background-image: url(//ossweb-img.qq.com/images/lol/v3/topfoot-spr.png);
+          background-size: 405px 178px;
+          background-repeat: no-repeat;
+          display: block;
+        }
+
+        .comm-icon-phone {
+          background-position: -357px -84px;
+          width: 16px;
+          height: 24px;
+        }
+
+      }
+
+      .head-search-btn {
+        float: right;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        margin: 17px 12px 0 0;
+
+        .comm-icon-search {
+          display: block;
+          background-position: -381px -39px;
+          width: 23px;
+          height: 24px;
+          background-image: url(//ossweb-img.qq.com/images/lol/v3/topfoot-spr.png);
+          background-size: 405px 178px;
+          background-repeat: no-repeat;
+        }
+      }
+
       .top-right-1 {
         width: 28px;
         height: 35px;
@@ -173,50 +269,11 @@ html, body {
         }
       }
 
-      .top-right-5 {
-        width: 160px;
-        height: 40px;
-        position: absolute;
-        bottom: -540px;
-        left: 615px;
-        background: url("http://ossweb-img.qq.com/images/lol/v3/topfoot-spr.png");
-        background-position: 188px -38px;
-      }
 
-      .top-right-6 {
-        .a-1 {
-          font-size: 15px;
-          color: #888787;
-
-        }
-
-        .a-2 {
-          font-size: 15px;
-          color: #eed179;
-          display: inline-block;
-          margin: 0 10px;
-        }
-
-        .a-3 {
-          display: inline-block;
-          border: 2px solid #93702d;
-          width: 82px;
-          height: 26px;
-          font-size: 12px;
-          color: #f5d185;
-          background: rgba(0, 0, 0, .65);
-          text-align: center;
-          line-height: 24px;
-          padding: 0 15px;
-          box-sizing: border-box;
-        }
-
-        width: 240px;
-        height: 26px;
-        position: absolute;
-        top: 660px;
-        right: -10px;
-      }
     }
   }
+}
+
+.header-lol > img {
+  @include rect(100%, auto);
 }

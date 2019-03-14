@@ -18,7 +18,7 @@ body {
 
 
 .footer_margin {
-  width: 1358px;
+  width: 1345px;
   height: 265px;
   margin: 0 auto;
 
@@ -48,7 +48,8 @@ body {
   .footer-right {
     width: 750px;
     height: 265px;
-    margin-left: 600px;
+    float: right;
+    //margin-left: 600px;
 
     .footer-top {
       p {

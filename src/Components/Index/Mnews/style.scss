@@ -1,0 +1,86 @@
+@import "@/Scss/reset";
+
+
+
+.allnews {
+  @include rect(496px, 380px);
+  float: right;
+  // margin-left:
+  .ant-tabs-nav-scroll {
+    @include rect(100%, 48px);
+
+    .ant-tabs-nav {
+      @include rect(40px, 48px);
+      @include font-size(18px);
+      @include color(#676767);
+    }
+  }
+}
+
+.first {
+  @include rect(496px, auto);
+  @include font-size(22px);
+  @include font-weight(700);
+  @include text-align();
+}
+
+.center {
+  @include flexbox();
+
+  .spe {
+    margin: 10px 0;
+    @include rect(36px, 20px);
+    @include font-size(12px);
+    @include text-align();
+    line-height: 18px;
+    border: 1px solid #e9852d;
+    &.inform {
+      color: #bb9a6c;
+      border: 1px #c5ab86 solid
+    }
+
+    &.event {
+      color: #6388c5;
+      border: 1px #97afc5 solid
+    }
+
+    &.amusement {
+      color: #e9852d;
+      border: 1px #e9852d solid
+    }
+
+    &.tutorial {
+      color: #4ba36a;
+      border: 1px #4ba36a solid
+    }
+  }
+
+  .p1p {
+    @include rect(370px, 39px);
+    //@include font-size(14px);
+    @include color(#424242);
+    font: 14px/3 "";
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: 20px;
+
+  }
+
+  .pdate {
+    @include rect(80px, 39px);
+    @include font-size(14px);
+    @include color(#9d9d9d);
+    margin-left: 18px;
+  }
+}
+
+.last {
+  @include rect(100%, 40px);
+  @include background-color(#e3e2e2);
+  @include flexbox();
+  @include justify-content();
+  @include text-align();
+  margin-top: 4px;
+  line-height: 40px;
+}

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
-import axios from 'axios';
+import {Link, NavLink} from 'react-router-dom'
+import ajax from '@/api/axios';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
 import './style.scss'
@@ -26,7 +26,7 @@ class HeroDetail extends Component {
     }
 
     componentWillMount() {
-        axios.get('/v1/hero_Detail', {
+        ajax.get('/v1/hero_Detail', {
             params: {
                 name: this.state.id
             }
@@ -91,7 +91,8 @@ class HeroDetail extends Component {
         let hero_Detail = {
             name: this.state.heroDetail.name,
             title: this.state.heroDetail.title,
-            tags: []
+            tags: [],
+            key: ''
         }
 
 
@@ -125,6 +126,7 @@ class HeroDetail extends Component {
                 )
 
             })
+            hero_Detail.key = this.state.heroDetail.key
             skillArr.push(
                 <li className={this.state.skillIndex === 0 ? 'active' : ''}
                     onClick={this.fn_Change_Skill_Index.bind(this, 0)} key={0}>
@@ -146,7 +148,7 @@ class HeroDetail extends Component {
             })
 
             skinNowName = this.state.heroDetail.skins[this.state.skinIndex].name;
-            skinNowName = skinNowName === 'default' ? '默认皮肤' : skinNowName;
+            skinNowName = '' //skinNowName === 'default' ? '默认皮肤' : skinNowName;
             this.state.heroDetail.skins.map((item, index) => {
                 //皮肤小图标
                 skinSmallArr.push(
@@ -241,7 +243,10 @@ class HeroDetail extends Component {
                     </li>
                 </ul>
             )
-
+            d4Info.push(
+                <a href={'http://daoju.ifover.com/tuizz/#/list/' + this.state.heroDetail.title}
+                   key={10}   target='_blank'   className='btn_buy'></a>
+            )
             blocks = this.state.heroDetail.blocks
 
         }
@@ -252,13 +257,13 @@ class HeroDetail extends Component {
                 <div className="title">
                     <div className="margin">
                         <div>
-                            <span><Icon type="home" theme="filled" /></span>
-                            <Link to='//lol.ifover.com'>英雄联盟首页</Link>
-                            <span><Icon type="right" /></span>
+                            <span><Icon type="home" theme="filled"/></span>
+                            <Link to='/'>英雄联盟首页</Link>
+                            <span><Icon type="right"/></span>
                             <a>游戏资料</a>
-                            <span><Icon type="right" /></span>
-                            <a>全部英雄</a>
-                            <span><Icon type="right" /></span>
+                            <span><Icon type="right"/></span>
+                            <Link to='/infohouse/heros'>全部英雄</Link>
+                            <span><Icon type="right"/></span>
                             <a className="te">{hero_Detail.name} {hero_Detail.title}</a>
                         </div>
                     </div>
@@ -279,12 +284,11 @@ class HeroDetail extends Component {
                                         {hero_Detail.tags}
                                     </p>
                                     {d4Info}
-                                    <a href='#' className='btn_buy'></a>
                                 </div>
                             </div>
                             <div className="hero-skin">
                                 <div className="top">
-                                    <h3>{skinNowName}</h3>
+                                    {/*<h3>{skinNowName}</h3>*/}
                                 </div>
                                 <div className="swiper-container gallery-thumbs">
                                     <ul className="swiper-wrapper">
@@ -325,7 +329,7 @@ class HeroDetail extends Component {
                                 <p>您无法查看使用该英雄的记录，请<a>[登陆]</a>，并绑定所在大区。</p>
                             </div>
                             <h3>推荐攻略</h3>
-                            <Strategy/>
+                            <Strategy id={hero_Detail.key}/>
                         </div>
                     </div>
                 </div>

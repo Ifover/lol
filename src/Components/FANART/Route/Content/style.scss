@@ -1,0 +1,84 @@
+@import '@/Scss/reset';
+
+html, body {
+  @include rect(100%, 100%);
+  @include overflow();
+}
+.con {
+  @include rect(100%, 100%);
+  margin-top:30px;
+  margin: 0 auto;
+}
+
+.nav {
+  // @include background-color(#e6e6e6);
+  @include flexbox();
+  margin:0 auto;
+  .card-container {
+    margin: 0 auto;
+
+    .ant-tabs {
+      @include font-size(14px);
+    }
+
+    .ul {
+      @include flexbox();
+      @include flex-wrap(wrap);
+      // @include rect(1180px,auto);
+      padding:0 30px;
+    }
+    li {
+      @include rect(258px,auto);
+      margin:15px;
+      // @include background-color(#fff);
+    }
+    .hero {
+      @include rect(258px,258px);
+      display:block;
+      img {
+        @include rect(258px,258px);
+      }
+    }
+    p {
+      @include rect(258px,24px);
+      @include font-size(14px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin:10px 12px;
+    }
+    .msgbox {
+      @include flexbox();
+      @include justify-content(space-between);
+      @include rect(258px,auto);
+      padding:0 12px 10px 12px;
+      .usermsg {
+        @include flexbox();
+        @include text-align();
+        @include justify-content();
+      }
+      .userbox{
+        @include rect(24px,24px);
+        border-radius: 50%;
+        // display:block;
+        margin-right:8px;
+        overflow: hidden;
+        vertical-align:middle;
+        
+        .user {
+          @include rect(100%,100%);
+          display:block;
+        }
+      }
+      
+      a {
+        @include font-size(12px);
+        @include color(#8b8b8b);
+        display:block;
+      }
+    }
+  }
+  .rnav {
+    margin-left:350px;
+  }
+}

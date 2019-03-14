@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
+import {Link, NavLink} from 'react-router-dom'
+import ajax from '@/api/axios'
 import img_search from '@/static/images/index/search_ico.png'
 import {Menu, Icon} from 'antd';
 import './style.scss'
+// import LazyLoadImg from 'lazy-load-img'
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -18,14 +19,15 @@ class HeroInfo extends Component {
         }
     }
 
-    componentWillMount() {
-        axios.get('/v1/champion').then(data => {
+    componentDidMount() {
+        ajax.get('/v1/champion').then(data => {
             this.setState({
                 heroList: data.data.data,
                 realHeroList: data.data.data
             })
         })
     }
+
 
     ov_fn_changeType(type) {
         this.setState({
@@ -61,7 +63,7 @@ class HeroInfo extends Component {
             // console.log(realHeroList[item]);
             heroArr.push(
                 <li key={item}>
-                    <Link to={'info-detail/' + realHeroList[item].id}>
+                    <Link to={'info-detail/' + realHeroList[item].id} target="_blank">
                         <img src={`http://ossweb-img.qq.com/images/lol/img/champion/${realHeroList[item].id}.png`}/>
                         <p>{realHeroList[item].name}</p>
                         <div className="bbb">
@@ -96,10 +98,10 @@ class HeroInfo extends Component {
                             <dd onClick={this.ov_fn_changeType.bind(this, 'Support')}
                                 className={this.state.indexType === 'Support' ? 'active' : ''}><a href="#">辅助</a></dd>
                         </dl>
-                        <a href="#" className="zlk">资料库 --></a>
+                        <NavLink to={'/infohouse/heros'} target="_blank" className="zlk">资料库 --></NavLink>
                     </div>
                     <div className="yxzl-bottom">
-                        <ul className="yxtx clear">
+                        <ul className="yxtx clear" id='herobox'>
                             {heroArr}
                         </ul>
                     </div>

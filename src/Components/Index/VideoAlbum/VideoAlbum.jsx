@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
-// import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
 import './style.scss'
-import axios from 'axios';
+import ajax from '@/api/axios';
+import img_blank from '@/static/images/blank.gif'
 
 
 class VideoAlbum extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: 0,
+            index: 0,
             day: new Date().getDay(),
             type: '',
-            list: [],
+            realMap: [],
             albumsID: [
                 '62,54,55,159,39,64',
                 '69,74,96,67,55,62,39,63',
@@ -24,39 +25,59 @@ class VideoAlbum extends Component {
                 '55,79,211,39'
             ],
             albums: [],
-            realAlbums: [],
+            videos: {
+                "0": [],
+                "1270": [],
+                "1254": [],
+                "1260": [],
+                "1265": []
+            },
             realAlbumsNum: 0
         }
     }
 
     reGetList = (value) => {
-        console.log(value, this);
+        // console.log(value, this);
         this.setState({
-            list: []
+            realMap: []
         });
         switch (value) {
+            case 0:
+                this.setState({
+                    realMap: this.state.videos['0']
+                })
             case 1270:
             case 1254:
             case 1260:
             case 1265:
                 this.setState({
-                    id: value
+                    index: value
                 })
-                axios.get('/v1/video/wmp', {
-                    params: {
-                        id: value,
-                        page: 1,
-                        pagesize: 8
-                    }
-                }).then(data => {
-                    console.log(data.data);
+                if (this.state.videos[value].length > 0) {
                     this.setState({
-                        list: data.data.msg.result
+                        realMap: this.state.videos[value]
                     })
-                });
+                } else {
+                    ajax.get('/v1/video/album', {
+                        params: {
+                            id: value,
+                            page: 1,
+                            pagesize: 8
+                        }
+                    }).then(data => {
+                        // console.log(data.data);
+                        let videos = this.state.videos
+                        videos[value] = data.data.msg.result,
+                            this.setState({
+                                videos,
+                                realMap: data.data.msg.result
+                            })
+                    });
+
+                }
                 break;
             default:
-                break
+                break;
         }
     }
 
@@ -66,53 +87,48 @@ class VideoAlbum extends Component {
             albums: []
         });
 
-        axios.get('/cmc/zmMcnCollectionList', {
+        ajax.get('/v1/hot_album', {
             params: {
                 collectionid: this.state.albumsID[value],
-                source: 'web_pc'
             }
         }).then(data => {
-            console.log(data.data.data.result);
+            // console.log(data.data.data.result);
             this.setState({
-                albums: data.data.data.result
+                albums: data.data
             })
         })
 
         // console.log(this.state.day);
     }
-
-    reLoadSplice = (value) => {
-        // console.log(value);
-        // if (value === -1) {
-        //     let len = this.state.albums.length;
-        //     let realAlbumsNum =
-        //     this.setState({
-        //         realAlbums :
-        //         realAlbumsNum:realAlbumsNum-1
-        //     })
-        //
-        // }
-    };
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        window.Echo.init({
+            offset: 100,
+            throttle: 0
+        })
+    }
 
     componentWillMount() {
         //最新视频
-        axios.get('/v1/video/album').then(data => {
+        ajax.get('/v1/video/rec').then(data => {
             // console.log(data.data);
+            let videos = this.state.videos;
+            videos['0'] = data.data.result
             this.setState({
-                list: data.data.result
+                videos,
+                realMap: data.data.result
             })
         });
+
         //热门专辑
-        axios.get('/cmc/zmMcnCollectionList', {
+        ajax.get('/v1/hot_album', {
             params: {
                 collectionid: '55,79,211,39',
-                source: 'web_pc'
             }
         }).then(data => {
             // console.log(data.data.data.result);
             this.setState({
-                albums: data.data.data.result,
-                realAlbums: data.data.data.result.slice(0, 3)
+                albums: data.data,
+                realAlbums: data.data.slice(0, 3)
             })
         })
     }
@@ -129,24 +145,27 @@ class VideoAlbum extends Component {
 
     render() {
         let htmlArr = [];
-        this.state.list.map((item, index) => {
+        this.state.realMap.map((item, index) => {
             // console.log(item);
             htmlArr.push(
                 <li key={index}>
-                    <div className='imgbox'>
-                        <img src={item.sCoverList[item.sCoverList.length - 1].url} alt=""/>
-                        <span className='time'>{item.iTime}</span>
-                    </div>
-                    <p><a href="/">{item.sTitle}</a></p>
-                    <div className='count'><span>{item.iTotalPlay}次播放</span><span>{item.sCreated.substr(0, 10)}</span>
-                    </div>
+                    <Link to={'/videodetail/' + item.iDocID} target='__ablank'>
+                        <div className='imgbox'>
+                            <img src={img_blank} data-echo={item.sIMG.indexOf('http') === -1 ? 'http:' + item.sIMG : item.sIMG} alt=""/>
+                            <span className='time'>{item.iTime}</span>
+                        </div>
+                        <p>{item.sTitle}</p>
+                        <div className='count'>
+                            <span>{item.iTotalPlay}次播放</span><span>{item.sCreated.substr(0, 10)}</span>
+                        </div>
+                    </Link>
                 </li>
             )
             return null
         });
 
         let albumsArr = []
-        this.state.realAlbums.map((item, index) => {
+        this.state.albums.slice(0, 3).map((item, index) => {
             albumsArr.push(
                 <div className='hotprogram-item' key={index}>
                     <img src={item.sIMG} alt={item.sDesc}/>
@@ -162,26 +181,26 @@ class VideoAlbum extends Component {
             return null
         });
         return (
-            <div className='layout'>
+            <div className='layoutViedeo'>
                 <div className='video-album'>
                     <div className='box_left'>
-                        <div className='title'>
+                        <div className='titleAlbum'>
                             <h2>最新视频</h2>
                             <div className='title-right'>
                                 <ul>
-                                    <li className={this.state.id === 0 ? 'active' : ''}>
+                                    <li className={this.state.index === 0 ? 'active' : ''}>
                                         <a href='javascript:;' onClick={this.reGetList.bind(this, 0)}>推荐</a>
                                     </li>
-                                    <li className={this.state.id === 1270 ? 'active' : ''}>
+                                    <li className={this.state.index === 1270 ? 'active' : ''}>
                                         <a href='javascript:;' onClick={this.reGetList.bind(this, 1270)}>官方</a>
                                     </li>
-                                    <li className={this.state.id === 1254 ? 'active' : ''}>
+                                    <li className={this.state.index === 1254 ? 'active' : ''}>
                                         <a href='javascript:;' onClick={this.reGetList.bind(this, 1254)}>娱乐</a>
                                     </li>
-                                    <li className={this.state.id === 1260 ? 'active' : ''}>
+                                    <li className={this.state.index === 1260 ? 'active' : ''}>
                                         <a href='javascript:;' onClick={this.reGetList.bind(this, 1260)}>赛事</a>
                                     </li>
-                                    <li className={this.state.id === 1265 ? 'active' : ''}>
+                                    <li className={this.state.index === 1265 ? 'active' : ''}>
                                         <a href='javascript:;' onClick={this.reGetList.bind(this, 1265)}>教学</a>
                                     </li>
                                 </ul>
@@ -193,7 +212,7 @@ class VideoAlbum extends Component {
                         </ul>
                     </div>
                     <div className="box_right">
-                        <div className='title'>
+                        <div className='titleAlbum'>
                             <h2>热门专辑</h2>
                             <div className='title-right'>
                                 <ul className='box_title_right'>
@@ -230,10 +249,6 @@ class VideoAlbum extends Component {
                         </div>
                         <div className='hotprogram-content'>
                             {albumsArr}
-                            <a onClick={this.reLoadSplice.bind(this, -1)}
-                               className="hotprogram-list hotprogram-list-left" href="javascript:" title="向左滚动"/>
-                            <a onClick={this.reLoadSplice.bind(this, 1)}
-                               className="hotprogram-list hotprogram-list-right" href="javascript:" title="向右滚动"/>
                         </div>
                         <a className="more-hotprogram" href="//lol.qq.com/v/v2/index.shtml" title="前往视频中心">前往视频中心</a>
                     </div>

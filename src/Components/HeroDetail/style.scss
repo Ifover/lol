@@ -7,12 +7,8 @@ html, body {
 
 .margin {
   width: 1240px;
+  overflow: hidden;
   margin: 0 auto;
-}
-
-#header {
-  @include rect(100%, 450px);
-  background: #ff9;
 }
 
 .title {

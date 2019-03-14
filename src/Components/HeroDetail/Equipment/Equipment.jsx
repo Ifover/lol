@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 
 
 class Equipment extends Component {
@@ -40,7 +39,7 @@ class Equipment extends Component {
                             if (index === 0 || index === 4 || index === 6 || index === 7) {
                                 return (
                                     <dl key={index}>
-                                        <dt><span>核心装备</span></dt>
+                                        <dt><span>{item.type.toUpperCase()}</span></dt>
                                         {
                                             item.items.map((v, i) => {
                                                 return (
@@ -65,7 +64,7 @@ class Equipment extends Component {
                         blocks[0].recommended.slice(0, 4).map((item, index) => {
                             return (
                                 <dl key={index}>
-                                    <dt><span>核心装备</span></dt>
+                                    <dt><span>{item.type.toUpperCase()}</span></dt>
                                     {
                                         item.items.map((v, i) => {
                                             return (

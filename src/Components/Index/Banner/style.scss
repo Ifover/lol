@@ -1,8 +1,9 @@
 @import "@/Scss/reset";
 
-.box {
+.banner {
   width: 820px;
   height: 380px;
+  float: left;
 }
 
 .swiper-container {
@@ -13,7 +14,8 @@
 .swiper-slide {
   background-size: cover;
   background-position: center;
-  @include rect(820px, 380px)
+  line-height: 40px !important;
+  @include rect(820px, 380px);
 
   img {
     @include rect(820px, 340px)
@@ -25,7 +27,7 @@
 }
 
 .gallery-thumbs {
-  @include rect(820px, 40px)
+  @include rect(820px, 40px);
   box-sizing: border-box;
   //padding: 10px 0;
 }

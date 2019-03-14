@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
-import axios from 'axios'
+import ajax from '@/api/axios'
+import ImgLazy from '@/api/ImgLazy'
 
 import './style.scss'
 
@@ -14,34 +15,34 @@ class Banner extends Component {
     }
 
     componentDidMount() {
-        axios.get('/v1/banner').then(data => {
+        ajax.get('/v1/banner').then(data => {
             this.setState({
                 banner: data.data.data
             });
-            console.log(data.data.data);
         })
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        var galleryThumbs = new Swiper('.gallery-thumbs', {
+        var bannerGalleryThumbs = new Swiper('#banner-swiper-thumbs', {
             // spaceBetween: 10,
             slidesPerView: 5,
             // loop: true,
+            // noSwiping : true,
             freeMode: true,
             loopedSlides: 5, //looped slides should be the same
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
         });
-        var galleryTop = new Swiper('.gallery-top', {
+        var bannerGalleryTop = new Swiper('#banner-swiper-top', {
             // spaceBetween: 10,
-            loop: true,
-            loopedSlides: 5, //looped slides should be the same
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+            autoplay: {
+                delay: 2000
             },
+            loop: true,
+            noSwiping: true,
+            loopedSlides: 5, //looped slides should be the same
             thumbs: {
-                swiper: galleryThumbs,
+                swiper: bannerGalleryThumbs,
             },
         });
 
@@ -54,10 +55,10 @@ class Banner extends Component {
 
         this.state.banner.map((item, index) => {
             arr.push(
-                <div className="swiper-slide" key={index}>
-                    <img src={item.imgUrl} alt=""/>
+                <div className="swiper-slide swiper-no-swiping" key={index}>
+                    <img src={item.imgUrl}/>
                 </div>
-            )
+            );
             arrs.push(
                 <div className="swiper-slide" key={index}>
                     {item.fName}
@@ -66,13 +67,13 @@ class Banner extends Component {
         });
         // console.log(arrs);
         return (
-            <div className='box'>
-                <div className="swiper-container gallery-top">
+            <div className='banner'>
+                <div className="swiper-container gallery-top" id='banner-swiper-top'>
                     <div className="swiper-wrapper">
                         {arr}
                     </div>
                 </div>
-                <div className="swiper-container gallery-thumbs">
+                <div className="swiper-container gallery-thumbs" id='banner-swiper-thumbs'>
                     <div className="swiper-wrapper">
                         {arrs}
                     </div>

@@ -1,0 +1,11 @@
+@import '@/Scss/reset';
+
+
+.fanart-banner {
+  @include rect(100%, 100%);
+
+  img {
+    @include rect(100%, 100%);
+
+  }
+}

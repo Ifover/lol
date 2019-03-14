@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios'
+import ajax from '@/api/axios'
 import {Icon} from 'antd'
 
 class Strategy extends Component {
@@ -11,21 +11,24 @@ class Strategy extends Component {
         }
     }
 
-    componentWillMount() {
-        axios.get('/v1/strategy', {
-            params: {
-                page: 1,
-                pagesize: 20,
-                p3: 103
-            }
-        }).then(data => {
-            // console.log(data.data);
-            if (data.data.status !== '-1') {
-                this.setState({
-                    strategy: data.data.msg.result
-                })
-            }
-        })
+    componentWillReceiveProps(nextProps, nextContext) {
+        // console.log(nextProps);
+        if (nextProps.id) {
+            ajax.get('/v1/strategy', {
+                params: {
+                    page: 1,
+                    pagesize: 20,
+                    p3: nextProps.id
+                }
+            }).then(data => {
+                // console.log(data.data);
+                if (data.data.status !== '-1') {
+                    this.setState({
+                        strategy: data.data.msg.result
+                    })
+                }
+            })
+        }
     }
 
     render() {
@@ -36,7 +39,7 @@ class Strategy extends Component {
                 htmlArr.push(
                     <li key={index}>
                         <p className="a-1">
-                            <span className="b-1"><Icon type="caret-right"/>{item.sTitle}</span>
+                            <span className="b-1" title={item.sTitle}><Icon type="caret-right"/>{item.sTitle.substr(0, 15)}</span>
                             <span className="b-2">来源:{item.sSource}</span>
                         </p>
                         <p className="a-2">

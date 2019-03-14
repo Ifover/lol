@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.min.css'
-import axios from 'axios'
+import ajax from '@/api/axios'
 
 import './style.scss'
 
@@ -22,12 +22,12 @@ class EventCenter extends Component {
 
     componentWillMount() {
         //获取队伍信息
-        axios.get('/v1/team_list').then(data => {
+        ajax.get('/v1/team_list').then(data => {
             this.setState({
                 teamList: data.data.msg
             }, () => {
                 //获取比赛信息
-                axios.get('/api/lol/match/apis/searchBMatchInfo.php?pagesize=150&p1=115&p5=1&r1=BMatchList&v=45').then(data => {
+                ajax.get('/v1/searchBMatchInfo').then(data => {
                     let strLeft = 'BMatchList = ';
                     let list = JSON.parse(data.data.substr(data.data.indexOf(strLeft) + strLeft.length)).msg.result;
                     let slide = 0;
@@ -44,21 +44,21 @@ class EventCenter extends Component {
                 })
 
                 //积分榜
-                axios.get('/v1/team_score_top').then(data => {
+                ajax.get('/v1/team_score_top').then(data => {
                     this.setState({
                         scoreList: data.data.msg.score[0]
                     })
-                    console.log(data.data.msg.score[0]);
+                    // console.log(data.data.msg.score[0]);
                 })
 
             });
         })
-        axios.get('/v1/team_member_lsit').then(data => {
+        ajax.get('/v1/team_member_lsit').then(data => {
             this.setState({
                 userslist: data.data.msg
             }, () => {
                 //最强战力
-                axios.get('/v1/battle_score_lsit').then(data => {
+                ajax.get('/v1/battle_score_lsit').then(data => {
                     let position = [];
                     // console.log(data.data.msg.position);
                     for (let i in data.data.msg.position) {
@@ -70,13 +70,12 @@ class EventCenter extends Component {
         })
 
 
-
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        var swiper = new Swiper('.swiper-container', {
+        var eventCenterWwiper = new Swiper('#eventcenter-swiper', {
             slidesPerView: 5,
-            spaceBetween: 16,
+            // spaceBetween: 16,
             // centeredSlides: true,
             pagination: {
                 el: '.swiper-pagination',
@@ -86,11 +85,9 @@ class EventCenter extends Component {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            // initialSlide: 64,//this.state.slide,
+            initialSlide: this.state.slide,
             normalizeSlideIndex: false
         });
-        // console.log(swiper);
-        // swiper.slideTo(0, 64, false)
     }
 
     render() {
@@ -135,7 +132,7 @@ class EventCenter extends Component {
         })
         let superUsersArr = [];
         if (this.state.position[this.state.superUsersIndex]) {
-            // console.log(this.state.position[0]);
+            // console.log(this.state.position);
             this.state.position[this.state.superUsersIndex].map((item, index) => {
                 // console.log(item);
                 superUsersArr.push(
@@ -156,7 +153,7 @@ class EventCenter extends Component {
             })
         }
         let scoreArr = []
-        console.log(this.state.teamList);
+        // console.log(this.state.teamList);
         this.state.scoreList.map((item, index) => {
             scoreArr.push(
                 <li key={index}>
@@ -187,7 +184,7 @@ class EventCenter extends Component {
                         </div>
                     </div>
                     <div className="center">
-                        <div className="swiper-container">
+                        <div className="swiper-container" id='eventcenter-swiper'>
                             <div className="swiper-wrapper">
                                 {arr}
                             </div>
@@ -200,31 +197,31 @@ class EventCenter extends Component {
                             <div className="bottom-left-top">
                                 <b>最强战力</b>
                                 <ul>
-                                    <li>
+                                    <li className={this.state.superUserIndex === 0 ? 'active' : ''}>
                                         <span onClick={() => {
                                             this.setState({superUsersIndex: 0})
                                         }}>上路
                                         </span>
                                     </li>
-                                    <li>
+                                    <li className={this.state.superUserIndex === 1 ? 'active' : ''}>
                                         <span onClick={() => {
                                             this.setState({superUsersIndex: 1})
                                         }}>打野
                                         </span>
                                     </li>
-                                    <li>
+                                    <li className={this.state.superUserIndex === 2 ? 'active' : ''}>
                                         <span onClick={() => {
                                             this.setState({superUsersIndex: 2})
                                         }}>中路
                                         </span>
                                     </li>
-                                    <li>
+                                    <li className={this.state.superUserIndex === 3 ? 'active' : ''}>
                                         <span onClick={() => {
                                             this.setState({superUsersIndex: 3})
                                         }}>下路
                                         </span>
                                     </li>
-                                    <li>
+                                    <li className={this.state.superUserIndex === 4 ? 'active' : ''}>
                                         <span onClick={() => {
                                             this.setState({superUsersIndex: 4})
                                         }}>辅助

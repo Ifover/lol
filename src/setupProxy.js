@@ -8,14 +8,4 @@ module.exports = function (app) {
             }
         )
     );
-    app.use(
-        proxy('/api', {
-                target: 'https://apps.game.qq.com',
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/api': ''
-                }
-            }
-        )
-    );
 };

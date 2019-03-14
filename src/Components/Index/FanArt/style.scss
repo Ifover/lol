@@ -1,0 +1,173 @@
+@import "@/Scss/reset";
+
+li {
+  list-style: none
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  width: 100%;
+}
+
+.fanart {
+   width: 100%;
+  // height: 572px;
+  padding-bottom: 82px;
+  background: #eeeeee;
+  overflow: hidden;
+  // display: flex;
+  // justify-content: center;
+  // padding-left: 200px;
+  .layout {
+    width: 1345px;
+    margin: 0 auto;
+    background: #eeeeee;
+  }
+
+  .fanart-top {
+    width: 819px;
+    height: 55px;
+    position: relative;
+    margin-top: 45px;
+
+    p {
+      width: 6px;
+      height: 28px;
+      background: #1da6ba;
+      display: inline-block;
+      position: absolute;
+      top: -2px;
+      left: -9px;
+    }
+
+    a {
+      display: block;
+      float: right;
+      font: 12px/55px "";
+    }
+  }
+
+  .fanart-center {
+    height: 368px;
+
+    .fanart-center-left {
+      width: 820px;
+      height: 368px;
+      float: left;
+
+      ul {
+        overflow: hidden;
+        @include flexbox();
+        @include justify-content(space-between);
+        @include flex-wrap(wrap);
+
+        li {
+          overflow: hidden;
+          width: 192px;
+          height: 176px;
+          background: #7ea1a6;
+          float: left;
+          margin-bottom: 16px;
+          position: relative;
+          cursor: pointer;
+
+          img.te {
+            width: 100%;
+            height: 100%;
+          }
+
+          p {
+            opacity: 0;
+            position: absolute;
+            width: 192px;
+            height: auto;
+            bottom: -40px;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 4px 5px 4px 5px;
+
+            img {
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+            }
+
+            i {
+              color: #cccccc;
+              font-weight: 300;
+            }
+          }
+        }
+
+        li:hover p {
+          transition: 0.8s;
+          opacity: 1;
+          bottom: 0;
+        }
+
+        li:hover img.te {
+          transform: scale(1.4);
+          transition: 0.8s;
+        }
+      }
+    }
+
+    .fanart-center-right {
+      width: 500px;
+      height: 368px;
+      float: right;
+
+      .left {
+        height: 411px;
+        width: 241px;
+        // background: blue;
+        margin-top: -43px;
+        float: left;
+        cursor: pointer;
+      }
+
+      .right {
+        height: 368px;
+        width: 240px;
+        float: left;
+        margin-left: 19px;
+
+        p {
+          width: 240px;
+          height: 87px;
+          // background: red;
+          margin-bottom: 16px !important;
+          cursor: pointer;
+        }
+
+        .href-partner {
+          display: block;
+          background-position: -193px -253px;
+          width: 239px;
+          height: 58px;
+          line-height: 58px;
+          overflow: visible;
+          position: relative;
+          z-index: 2;
+          float: right;
+          margin-top: 2px;
+          background-image: url(//ossweb-img.qq.com/images/lol/v3/index-spr.png);
+          background-size: 638px 572px;
+          background-repeat: no-repeat;
+
+          i {
+
+          }
+        }
+
+      }
+    }
+  }
+}
+

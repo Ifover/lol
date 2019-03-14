@@ -1,0 +1,102 @@
+@import '@/Scss/reset';
+
+html, body {
+  @include rect(100%, 100%);
+  @include overflow();
+}
+
+.atcontent {
+  @include rect(100%, 100%);
+  margin-top: 30px;
+  @include flexbox();
+  @include justify-content();
+}
+
+.atnav {
+  @include rect(1280px, 100%);
+
+  .ant-tabs-nav-wrap {
+    @include text-align();
+    border: 0;
+
+  }
+
+  .ant-tabs-tab {
+    @include font-size(20px);
+  }
+}
+
+.atlist {
+  @include rect(100%, auto);
+  @include flexbox();
+  // @include justify-content(left);
+  @include flex-direction(column);
+}
+
+.atlist li {
+  @include flexbox();
+  @include rect(100%, 230px);
+  @include background-color(#e6e6e6);
+  margin-bottom: 20px;
+  padding: 30px;
+  border-radius: 30px;
+
+  .attention {
+    @include flexbox();
+
+    .photo {
+      @include rect(90px, 90px);
+      border-radius: 50%;
+      overflow: hidden;
+      vertical-align: middle;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .introduce {
+      @include rect(260px, 161px);
+      margin-left: 15px;
+
+      .p1 {
+        @include font-size(16px);
+        @include color(#404040);
+        font-weight: 700;
+        margin: 5px 0;
+      }
+
+      .p2 {
+        @include font-size(14px);
+        @include color(#96a9ad);
+      }
+
+      .p3 {
+        @include flexbox();
+        @include font-size(14px);
+        @include color(#7d7d7d);
+        margin: 20px 0;
+
+        span {
+          margin-right: 36px;
+        }
+      }
+    }
+
+  }
+
+  .pictures {
+    margin-left: 200px;
+
+    a {
+      margin-right: 20px;
+    }
+
+    img {
+      @include rect(170px, 170px);
+    }
+  }
+
+
+}

@@ -5,14 +5,13 @@ html, body {
 }
 
 #yxzl {
-
-  height: 626px;
+  @include rect(100%, 626px);
   padding-top: 73px;
   //padding: 73px 0 0 12px;
   background: #e3e2e2;
 
   .layout {
-    width: 1358px;
+    width: 1345px;
     margin: 0 auto;
 
   }
@@ -100,7 +99,7 @@ html, body {
 
   .yxzl-bottom {
     /* overflow: hidden; */
-    width: 1395px;
+    width: 1345px;
     height: 438px;
     margin-top: 21px;
     overflow-y: scroll;
@@ -116,7 +115,7 @@ html, body {
         text-align: center;
         width: 90px;
         height: 100px;
-        margin: 0 16px 12px 0;
+        margin: 0 12px 12px 0;
         position: relative;
         cursor: pointer;
 

@@ -1,0 +1,139 @@
+#infoitems {
+  .items-box {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    padding-top: 30px;
+    box-sizing: content-box;
+
+    li {
+      width: 90px;
+      margin-bottom: 22px;
+
+      img {
+        display: block;
+        width: 66px;
+        height: 65px;
+        margin: 0 auto;
+
+      }
+
+      p {
+        padding: 5px 0;
+        text-align: center;
+        font: 12px/20px "";
+      }
+    }
+  }
+}
+
+#itemFromTree {
+  position: fixed;
+  top: 60px;
+
+}
+
+.poppup-item {
+  position: absolute;
+  width: 400px;
+  padding: 20px;
+  background: rgba(0, 0, 0, .8);
+  border-radius: 5px;
+  z-index: 100;
+
+  .item-title {
+    height: 65px;
+
+    img {
+      float: left;
+      width: 65px;
+      height: 65px;
+      margin-right: 15px;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #54ff00;
+      line-height: 30px;
+    }
+
+    .cons {
+      font-size: 14px;
+      color: #ca9033;
+      line-height: 30px;
+    }
+  }
+
+  .item-desc {
+    padding: 15px 0;
+    border-bottom: 1px solid #222;
+    color: #b0ddff;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .item-from {
+    padding: 25px 0;
+
+    i {
+      display: block;
+      background: #999;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .line0 {
+      height: 1px;
+    }
+
+    .line1 {
+      width: 1px;
+      height: 20px;
+    }
+    .line2{
+      width: 1px;
+      height: 18px;
+    }
+
+    h5 {
+      font-size: 16px;
+      color: #ff4200;
+      margin-bottom: 20px;
+    }
+
+    .item-tree {
+      position: relative;
+      margin-top: -40px;
+      width: 100%;
+      color: #54ff00;
+
+      .tree-lv {
+        float: left;
+        width: 100%;
+        text-align: center;
+      }
+
+    }
+    li{
+      float: left;
+    }
+    .tree-count2{
+      width: 33.33%;
+    }
+    .tree-count3{
+      width: 49.99%;
+    }
+  }
+}
+
+.alert-item-box {
+  width: 440px;
+  height: 300px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  position: fixed;
+  top: 60px;
+}

@@ -1,0 +1,287 @@
+.margin_pac {
+  width: 1345px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.popular {
+  width: 100%;
+  height: 420px;
+  background: #eee;
+  padding-top: 50px;
+
+  .popular-left {
+    width: 820px;
+    height: 335px;
+    float: left;
+
+
+    .popular-left-top {
+      height: 34px;
+
+
+      h3 {
+        display: inline-block;
+        color: #0b0b0b;
+        font-size: 24px;
+        padding: 0 24px 0 20px;
+      }
+
+      .popular-left-title {
+        display: inline-block;
+
+        .a-1 {
+          display: inline-block;
+          line-height: 34px;
+          font-size: 14px;
+          padding-right: 40px;
+        }
+
+        .te {
+          padding-left: 340px;
+        }
+
+        border-bottom: 1px solid #e0e2e2;
+      }
+
+
+    }
+
+    .popular-left-bottom {
+      width: 820px;
+      height: 279px;
+      padding-top: 21px;
+
+      ul {
+        overflow: hidden;
+        margin-bottom: 0 !important;
+
+        li {
+          width: 193px;
+          height: 279px;
+          float: left;
+          margin-right: 12px;
+
+          .a-1 {
+            width: 193px;
+            height: 207px;
+            background: #0b0b0b;
+          }
+
+          .a-2 {
+            width: 193px;
+            height: 72px;
+            background: #fff;
+            padding: 6px 10px 4px 10px;
+
+            p {
+
+              margin-bottom: 0 !important;
+            }
+
+            a {
+              display: inline-block;
+
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .popular-right {
+    width: 496px;
+    height: 335px;
+    float: right;
+
+    .popular-right-top {
+      width: 496px;
+      height: 169px;
+
+      .left {
+        width: 336px;
+        height: 169px;
+        float: left;
+
+      }
+
+      .right {
+        width: 118px;
+        height: 169px;
+        float: right;
+
+        p {
+          width: 118px;
+          height: 76px;
+          margin-bottom: 17px;
+          text-align: center;
+          line-height: 76px;
+          background: url("http://ossweb-img.qq.com/images/lol/v3/index-spr.png");
+          background-position: -193px -316px;
+          color: #fff;
+          font-weight: 700;
+        }
+
+        p:nth-child(2) {
+          margin-top: 17px;
+        }
+      }
+    }
+
+    .popular-right-bottom {
+      width: 496px;
+      height: 166px;
+
+      ul {
+        padding-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0 !important;
+
+        li {
+          width: 112px;
+          height: 68px;
+          background: #fff;
+          color: #424242;
+          text-align: center;
+          line-height: 68px;
+
+          .a-1 {
+            display: inline-block;
+            width: 25px;
+            height: 19px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -318px -12px;
+            vertical-align: middle;
+            margin: -4px 5px 0 0;
+          }
+
+          .a-2 {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -193px -71px;
+            vertical-align: middle;
+            margin: 0 5px;
+
+          }
+
+          .a-3 {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -218px -71px;
+            vertical-align: middle;
+            margin: 0 5px;
+
+          }
+
+          .a-4 {
+            display: inline-block;
+            width: 22px;
+            height: 23px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -264px -12px;
+            vertical-align: middle;
+            margin: 0 5px;
+          }
+        }
+
+        li:hover {
+          border-radius: 4px;
+          box-shadow: 0 0 20px #ccc;
+          color: #0da0b4;
+        }
+
+      }
+
+      .threebox {
+        p:hover {
+          border-radius: 4px;
+          box-shadow: 0 0 20px #ccc;
+          color: #0da0b4;
+        }
+
+        padding-top: 15px;
+        display: flex;
+        justify-content: space-between;
+
+        .b-1 {
+          width: 240px;
+          height: 68px;
+          background: #fff;
+          color: #424242;
+          text-align: center;
+          line-height: 68px;
+
+          .b-4 {
+            display: inline-block;
+            width: 28px;
+            height: 24px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -231px -12px;
+            vertical-align: middle;
+            margin: 0 5px;
+          }
+
+          .b-5 {
+            display: inline-block;
+            width: 29px;
+            height: 14px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -247px -46px;
+            vertical-align: middle;
+            margin: 0 5px;
+          }
+        }
+
+        .b-2 {
+          width: 112px;
+          height: 68px;
+          background: #fff;
+          color: #424242;
+          text-align: center;
+          line-height: 68px;
+
+          .b-6 {
+            display: inline-block;
+            width: 23px;
+            height: 17px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -319px -71px;
+            vertical-align: middle;
+            margin: 0 5px;
+          }
+        }
+
+        .b-3 {
+          width: 112px;
+          height: 68px;
+          background: #fff;
+          color: #424242;
+          text-align: center;
+          line-height: 68px;
+
+          .b-7 {
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+            background: url("http://ossweb-img.qq.com/images/lol/v3/comm-spr.png");
+            background-position: -375px -12px;
+            vertical-align: middle;
+            margin: 0 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.active1 {
+  font-weight: 700;
+  color: #1da6ba;
+}
+
+

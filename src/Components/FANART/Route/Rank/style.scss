@@ -1,0 +1,102 @@
+@import '@/Scss/reset';
+
+html, body {
+  @include rect(100%, 100%);
+  @include overflow();
+}
+.rankbox {
+  @include rect(100%, 100%);
+  margin-top:30px;
+  @include flexbox();
+  @include justify-content();
+  // @include text-align();
+}
+
+.date {
+  @include rect(1280px,35px);
+  @include font-size(14px);
+  @include text-align();
+  @include color(#7d7d7d);
+  line-height:50px;
+}
+
+.rknav{
+  @include rect(1280px, 100%);
+  
+  .ant-tabs-nav-wrap {
+    @include text-align();
+    border:0;
+    
+  }
+  .ant-tabs-bar{
+    border:0;
+  }
+  .ant-tabs-tab {
+    @include font-size(20px);
+  }
+
+  ul {
+    @include rect(1280px, 100%);
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include justify-content(left);
+    margin-top:0;
+  }
+
+  li {
+    @include rect(224px,268px);
+    margin:20px 10px;
+    .imgbox {
+      @include rect(224px,196px);
+      img {
+        @include rect(224px,196px);
+        display:block;
+      }
+    }
+    p {
+      @include rect(204px,21px);
+      @include font-size(14px);
+      @include color(#000);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin:10px 0;
+      padding-left:15px;
+    }
+    .umsg {
+      @include rect(204px,28px);
+      @include flexbox();
+      @include justify-content(space-between);
+      padding-left:15px;
+      margin-top:10px;
+    }
+    .leftmsg {
+      @include flexbox();
+      .image {
+        @include rect(24px,24px);
+        border-radius: 50%;
+        // display:block;
+        margin-right:8px;
+        overflow: hidden;
+        vertical-align:middle;
+      }
+      span {
+        @include font-size(12px);
+        @include color(#8b8b8b);
+        vertical-align:middle;
+      }
+    }
+    .rightmsg {
+      @include font-size(12px);
+      @include color(#8b8b8b);
+      i {
+        margin-left:3px;
+      }
+    }
+  }
+  
+}
+
+
+
+

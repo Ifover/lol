@@ -1,0 +1,74 @@
+@import '@/Scss/reset';
+
+html, body {
+  @include rect(100%, 100%);
+  @include overflow();
+}
+.accontent {
+  @include rect(100%, 100%);
+  margin-top:30px;
+  @include flexbox();
+  @include justify-content();
+}
+
+.acnav {
+  @include rect(1280px, 100%);
+
+  .ant-tabs-nav-wrap {
+    @include text-align();
+    border:0;
+    
+  }
+
+  .ant-tabs-tab {
+    @include font-size(20px);
+  }
+}
+
+.aclist {
+  @include rect(1200px,auto);
+  @include flexbox();
+  @include flex-wrap(wrap);
+  // @include justify-content(left);
+}
+
+.aclist li {
+  @include rect(380px,307px);
+  @include background-color(#e6e6e6);
+  margin:10px 10px;
+  .imgbox {
+    @include rect(380px,229px);
+    position: relative;
+    display:block;
+    img {
+      @include rect(380px,229px);
+    }
+  }
+  .dal {
+    @include rect(360px,42px);
+    @include font-size(14px);
+    @include text-align();
+    @include color(#fff);
+    display:none;
+    position:absolute;
+    top:0;left:0;bottom:0;right:0;
+    margin:auto;
+  }
+  .actitle {
+    @include rect(380px,24px);
+    @include font-size(16px);
+    @include text-align();
+    margin-top:15px;
+  }
+  .actdate {
+    @include rect(380px,18px);
+    @include font-size(12px);
+    @include text-align();
+    @include color(#96a9ad);
+    margin-top:5px;
+  }
+}
+
+
+
+
